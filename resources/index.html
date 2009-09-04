@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>untitled</title>
+		<style type="text/css" media="screen">
+			body {
+				background-color:#979797;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			//$(function($){ $('h1').fadeOut(); });
+			console.log(ev);
+			console.log(ev.version);
+			ev.window.setTitle($('title').text());
+			var originalFrame = ev.window._frame;
+			//ev.window.close();
+			console.log(originalFrame);
+			
+			var sequence = [null,
+				// Move window
+				function(){ ev.window._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
+				function(){ ev.window._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
+				function(){ ev.window._frame = originalFrame },
+				
+				// Toggle shadow
+				function(){ ev.window.setHasShadow(false) },
+				function(){ ev.window.setHasShadow(true) },
+				
+				// Remove the toolbar
+				function(){ ev.window.setToolbar(null) },
+				
+				// Toggle minimized
+				function(){ ev.window.miniaturize() },
+				function(){ ev.window.deminiaturize() }
+			];
+			for (var i in sequence) setTimeout(sequence[i], 1000*(parseInt(i)+1));
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>untitled</h1>
+			<nav></nav>
+		</header>
+		<section>
+			hello
+		</section>
+		<footer>
+			<address></address>
+		</footer>
+	</body>
+</html>
