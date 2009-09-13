@@ -36,8 +36,9 @@ Development mode enables a series of tools, aiding development:
 
 - Interactive javascript console
 - DOM and CSS inspector
-- Resource tracker (aka "the timeline")
 - Javascript profiler
+- Javascript debugger
+- Resource tracker (aka "the timeline")
 - HTML5 database manager
 - Access to a streaming text log of messages both from your application (using console.log() etc) and from the runner core.
 - Quick restarting (reloading) of your app w/o restarting the actual process
