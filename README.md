@@ -32,7 +32,7 @@ Native drag and drop is [already supported by WebKit](http://developer.apple.com
 
 ## Development mode
 
-Development mode enables a series of tool to aid development
+Development mode enables a series of tools, aiding development:
 
 - The Webkit interactive javascript console
 - DOM and CSS inspector
