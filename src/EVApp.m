@@ -111,7 +111,7 @@
 	
 	// load index.html
 	NSURL *indexURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"] isDirectory:false];
-#if 1
+#if 0
 	indexURL = [[NSURL alloc] 
 				initFileURLWithPath:@"/Users/rasmus/src/cocojs/resources/index.html"
 				isDirectory:false];

@@ -8,9 +8,9 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="549"/>
-			<integer value="518"/>
 			<integer value="371"/>
+			<integer value="549"/>
+			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1431,13 +1431,14 @@
 												<nil key="NSDefaultParagraphStyle"/>
 											</object>
 											<int key="NSTVFlags">6</int>
-											<string key="NSMaxSize">{708, 1e+07}</string>
+											<string key="NSMaxSize">{1394, 1e+07}</string>
 											<string key="NSMinize">{223, 0}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
 									<string key="NSFrameSize">{697, 490}</string>
 									<reference key="NSSuperview" ref="73474208"/>
+									<reference key="NSNextKeyView" ref="187302285"/>
 									<reference key="NSDocView" ref="187302285"/>
 									<object class="NSColor" key="NSBGColor">
 										<int key="NSColorSpace">1</int>
@@ -1472,6 +1473,7 @@
 							</object>
 							<string key="NSFrame">{{-1, 0}, {697, 490}}</string>
 							<reference key="NSSuperview" ref="585815365"/>
+							<reference key="NSNextKeyView" ref="1025291851"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="64051740"/>
 							<reference key="NSHScroller" ref="190770273"/>
@@ -3572,7 +3574,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSPanel</string>
+							<string>NSWindow</string>
 							<string>NSTextView</string>
 							<string>NSWindow</string>
 							<string>EVWebView</string>

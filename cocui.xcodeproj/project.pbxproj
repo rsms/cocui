@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		3A105538105D264D00E1DFE2 /* CUManagerApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A105537105D264D00E1DFE2 /* CUManagerApp.m */; };
+		3A114E93105D3E1C00921886 /* CUImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114E92105D3E1C00921886 /* CUImageView.m */; };
+		3A114ED7105D474300921886 /* Template.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* Template.app */; };
+		3A114F53105D600100921886 /* IconFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114F4F105D600100921886 /* IconFamily.m */; };
+		3A114F54105D600100921886 /* NSString+CarbonFSRefCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114F51105D600100921886 /* NSString+CarbonFSRefCreation.m */; };
+		3A114F63105D610B00921886 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A114F62105D610B00921886 /* Carbon.framework */; };
+		3A1183CD105D1CA30058B542 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1183CC105D1CA30058B542 /* main.xib */; };
+		3A1183D4105D25750058B542 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1183D0105D25750058B542 /* main.m */; };
 		3A1BFA771051654B00FE3E7D /* NSWindow+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BFA761051654B00FE3E7D /* NSWindow+EVJS.m */; };
 		3A1BFB0810516BCD00FE3E7D /* NSDictionary+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BFB0710516BCD00FE3E7D /* NSDictionary+EVJS.m */; };
 		3A1BFB231051BD0800FE3E7D /* EVRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BFB221051BD0800FE3E7D /* EVRect.m */; };
@@ -18,6 +25,8 @@
 		3A4BEF3C10510E0700534481 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4BEF3B10510E0700534481 /* WebKit.framework */; };
 		3A4BEF4D1051100100534481 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BEF4C1051100100534481 /* index.html */; };
 		3A4BEF8410513E6400534481 /* EVWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BEF8310513E6400534481 /* EVWebView.m */; };
+		3A6A0B4C105D17590035640D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		3A6A0B6F105D183A0035640D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A0B6D105D183A0035640D /* MainMenu.xib */; };
 		3AF3B962105BEA1100B3CBCC /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3B961105BEA1100B3CBCC /* default.css */; };
 		3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */; };
 		3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */; };
@@ -31,15 +40,38 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3A114ED8105D474A00921886 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Template */;
+			remoteInfo = Template;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		1DDD58150DA1D0A300B32029 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainMenu.xib; path = resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = src/prefix.pch; sourceTree = "<group>"; };
+		3A105536105D264D00E1DFE2 /* CUManagerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUManagerApp.h; sourceTree = "<group>"; };
+		3A105537105D264D00E1DFE2 /* CUManagerApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUManagerApp.m; sourceTree = "<group>"; };
+		3A114E91105D3E1C00921886 /* CUImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUImageView.h; sourceTree = "<group>"; };
+		3A114E92105D3E1C00921886 /* CUImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUImageView.m; sourceTree = "<group>"; };
+		3A114F4F105D600100921886 /* IconFamily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconFamily.m; sourceTree = "<group>"; };
+		3A114F50105D600100921886 /* IconFamily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconFamily.h; sourceTree = "<group>"; };
+		3A114F51105D600100921886 /* NSString+CarbonFSRefCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CarbonFSRefCreation.m"; sourceTree = "<group>"; };
+		3A114F52105D600100921886 /* NSString+CarbonFSRefCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CarbonFSRefCreation.h"; sourceTree = "<group>"; };
+		3A114F62105D610B00921886 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3A1183CC105D1CA30058B542 /* main.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = main.xib; path = manager/main.xib; sourceTree = "<group>"; };
+		3A1183CF105D25750058B542 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1183D0105D25750058B542 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A1183D1105D25750058B542 /* main.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = main.xib; sourceTree = "<group>"; };
+		3A1183D2105D25750058B542 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		3A1BFA331051630C00FE3E7D /* jsbridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jsbridge.h; path = src/jsbridge/jsbridge.h; sourceTree = "<group>"; };
 		3A1BFA761051654B00FE3E7D /* NSWindow+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+EVJS.m"; path = "src/jsbridge/NSWindow+EVJS.m"; sourceTree = "<group>"; };
 		3A1BFB0710516BCD00FE3E7D /* NSDictionary+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+EVJS.m"; path = "src/jsbridge/NSDictionary+EVJS.m"; sourceTree = "<group>"; };
@@ -56,6 +88,8 @@
 		3A4BEF4C1051100100534481 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = resources/index.html; sourceTree = "<group>"; };
 		3A4BEF8210513E6400534481 /* EVWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWebView.h; path = src/EVWebView.h; sourceTree = "<group>"; };
 		3A4BEF8310513E6400534481 /* EVWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWebView.m; path = src/EVWebView.m; sourceTree = "<group>"; };
+		3A6A0B52105D17590035640D /* Cocui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A6A0B6E105D183A0035640D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3AF3B961105BEA1100B3CBCC /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = resources/default.css; sourceTree = "<group>"; };
 		3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+EVJS.m"; path = "src/jsbridge/NSApplication+EVJS.m"; sourceTree = "<group>"; };
 		3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+EVJS.m"; path = "src/jsbridge/NSMutableDictionary+EVJS.m"; sourceTree = "<group>"; };
@@ -70,10 +104,19 @@
 		3AF3BC1C105C421700B3CBCC /* FScript.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FScript.framework; path = /Library/Frameworks/FScript.framework; sourceTree = "<absolute>"; };
 		3AF3BC5C105C49CC00B3CBCC /* WebInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebInspector.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Cocui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A6A0B4B105D17590035640D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6A0B4C105D17590035640D /* Cocoa.framework in Frameworks */,
+				3A114F63105D610B00921886 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +133,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				32CA4F630368D1EE00C91783 /* prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
 				3A4BEF0B1051095800534481 /* EVApp.h */,
 				3A4BEF0C1051095800534481 /* EVApp.m */,
 				3A4BEF8210513E6400534481 /* EVWebView.h */,
@@ -98,6 +143,7 @@
 				3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */,
 				3A1BFB241051BD0F00FE3E7D /* js-bridge */,
 				3AF3BBF6105C3C0D00B3CBCC /* webkit-private */,
+				3A1183CE105D25750058B542 /* manager */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -105,6 +151,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A114F62105D610B00921886 /* Carbon.framework */,
 				3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */,
 				3A4BEF3B10510E0700534481 /* WebKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -126,7 +173,8 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Cocui.app */,
+				8D1107320486CEB800E47090 /* Template.app */,
+				3A6A0B52105D17590035640D /* Cocui.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,21 +183,12 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				3A1183CC105D1CA30058B542 /* main.xib */,
 			);
 			name = Events;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				32CA4F630368D1EE00C91783 /* prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -160,7 +199,7 @@
 				3A4BC26A1051CF6F0080A8E5 /* jquery.js */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				3A6A0B6D105D183A0035640D /* MainMenu.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -172,6 +211,25 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A1183CE105D25750058B542 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				3A1183CF105D25750058B542 /* Info.plist */,
+				3A1183D0105D25750058B542 /* main.m */,
+				3A1183D1105D25750058B542 /* main.xib */,
+				3A1183D2105D25750058B542 /* prefix.pch */,
+				3A105536105D264D00E1DFE2 /* CUManagerApp.h */,
+				3A105537105D264D00E1DFE2 /* CUManagerApp.m */,
+				3A114E91105D3E1C00921886 /* CUImageView.h */,
+				3A114E92105D3E1C00921886 /* CUImageView.m */,
+				3A114F50105D600100921886 /* IconFamily.h */,
+				3A114F4F105D600100921886 /* IconFamily.m */,
+				3A114F52105D600100921886 /* NSString+CarbonFSRefCreation.h */,
+				3A114F51105D600100921886 /* NSString+CarbonFSRefCreation.m */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		3A1BFB241051BD0F00FE3E7D /* js-bridge */ = {
@@ -209,9 +267,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Cocui */ = {
+		3A6A0B35105D17590035640D /* Cocui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Cocui" */;
+			buildConfigurationList = 3A6A0B4F105D17590035640D /* Build configuration list for PBXNativeTarget "Cocui" */;
+			buildPhases = (
+				3A6A0B36105D17590035640D /* Resources */,
+				3A6A0B3C105D17590035640D /* Sources */,
+				3A6A0B4B105D17590035640D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A114ED9105D474A00921886 /* PBXTargetDependency */,
+			);
+			name = Cocui;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Events;
+			productReference = 3A6A0B52105D17590035640D /* Cocui.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* Template */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Template" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -221,10 +298,10 @@
 			);
 			dependencies = (
 			);
-			name = Cocui;
+			name = Template;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Events;
-			productReference = 8D1107320486CEB800E47090 /* Cocui.app */;
+			productReference = 8D1107320486CEB800E47090 /* Template.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,27 +316,49 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* Cocui */,
+				8D1107260486CEB800E47090 /* Template */,
+				3A6A0B35105D17590035640D /* Cocui */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A6A0B36105D17590035640D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A114ED7105D474300921886 /* Template.app in Resources */,
+				3A1183CD105D1CA30058B542 /* main.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3A4BC26E1051CF9A0080A8E5 /* jquery.js in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				3A4BEF4D1051100100534481 /* index.html in Resources */,
 				3AF3B962105BEA1100B3CBCC /* default.css in Resources */,
+				3A6A0B6F105D183A0035640D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A6A0B3C105D17590035640D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A1183D4105D25750058B542 /* main.m in Sources */,
+				3A105538105D264D00E1DFE2 /* CUManagerApp.m in Sources */,
+				3A114E93105D3E1C00921886 /* CUImageView.m in Sources */,
+				3A114F53105D600100921886 /* IconFamily.m in Sources */,
+				3A114F54105D600100921886 /* NSString+CarbonFSRefCreation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +382,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3A114ED9105D474A00921886 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Template */;
+			targetProxy = 3A114ED8105D474A00921886 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -292,10 +399,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+		3A6A0B6D105D183A0035640D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1DDD58150DA1D0A300B32029 /* MainMenu.xib */,
+				3A6A0B6E105D183A0035640D /* English */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -303,6 +410,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A6A0B50105D17590035640D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SYSTEM_LIBRARY_DIR)/Frameworks/WebKit.framework/Versions/A/Frameworks\\\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = manager/prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=2";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = manager/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Cocui;
+			};
+			name = Debug;
+		};
+		3A6A0B51105D17590035640D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SYSTEM_LIBRARY_DIR)/Frameworks/WebKit.framework/Versions/A/Frameworks\\\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = manager/prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = manager/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Cocui;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -323,7 +474,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Cocui;
+				PRODUCT_NAME = Template;
 			};
 			name = Debug;
 		};
@@ -343,7 +494,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Cocui;
+				PRODUCT_NAME = Template;
 			};
 			name = Release;
 		};
@@ -376,7 +527,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Cocui" */ = {
+		3A6A0B4F105D17590035640D /* Build configuration list for PBXNativeTarget "Cocui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A6A0B50105D17590035640D /* Debug */,
+				3A6A0B51105D17590035640D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Template" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
