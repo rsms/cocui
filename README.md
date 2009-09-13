@@ -47,3 +47,5 @@ To enable development mode, set or change the boolean defaults key "DevelopmentM
 Enable for the demo app:
 
 	$ defaults write se.notion.Cocui DevelopmentMode -bool yes
+
+You need to restart the native app after changing this key. Afterwards, a new menu item will appear: "Develop".
