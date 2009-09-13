@@ -2,11 +2,22 @@
 
 COCoa User Interface mockup.
 
-For mocking up functional Cocoa applications using WebKit (HTML and JavaScript).
-
-(Currently considered an experiment)
+For rapidly building functional Cocoa applications using WebKit (HTML, CSS and JavaScript).
 
 ## What awesome stuff can I do?
+
+Everyone love bullet-points:
+
+- Write your app like a regular HTML page with javascript
+- Opening of files by associating your app with one or more file types
+- Retains the WebKit debugger, profiler, console and inspector developer tools
+- Unrestricted XHR (can load and interact with any resource on the web or local)
+- NSApplication events propagated as native Javascript events in your document (i.e. "applicationWillBecomeActive", etc)
+- Full control over window (resizing, minimizing, hiding, closing, etc through "App.window")
+- Full control over NSApp (terminating, etc through "App.app")
+- Access to NSUserDefaults (system-native application settings) through "App.defaults"
+- Single namespace exposes the "bridge" between Cocoa and Javascript -- "App"
+- Most of these things demonstrated in the demo app (resources/index.html)
 
 The Javascript-to-Cocoa bridge enables access to most things, like your NSApplication and your NSWindow.
 
@@ -14,4 +25,6 @@ The demo app [resources/index.html](http://github.com/rsms/cocui/blob/master/res
 
 You can do stuff like this:
 
-	<a href="javascript:ev.window.miniaturize()">Minimize application</a>
+	<a href="javascript:App.window.miniaturize()">Minimize application</a>
+
+Native drag and drop is [already supported by WebKit](http://developer.apple.com/mac/library/documentation/AppleApplications/Conceptual/SafariJSProgTopics/Tasks/DragAndDrop.html#//apple_ref/doc/uid/30001233-BAJGJJAH).

@@ -34,6 +34,7 @@
 			// App.terminate();
 		}
 		
+		// Register a handler for opening files
 		App.onOpenFiles = function() {
 			console.log("openFiles: " + arguments + ", arguments.length = "+arguments.length);
 			for (var i=0; i<arguments.length; i++)
@@ -58,14 +59,12 @@
 			console.log(App.defaults.stringForKey('someKey')); // get someKey
 			App.defaults.removeObjectForKey('someKey'); // remove someKey
 			
-			
-			console.log("xy", window);
-			
+			// Fetch a remote website
 			/*$.get("http://hunch.se/", function(data){
 				console.log("Data Loaded: " + data);
 			});*/
 			
-			// events
+			// events from NSApplication
 			document.addEventListener("applicationWillBecomeActive", function(ev){
 				console.log("app is becoming active");
 			}, false);
@@ -73,8 +72,10 @@
 				console.log("app resigns active");
 			}, false);
 			
-			
+			// Run a few animated demonstrations
 			//test_ui();
+			
+			// Misc stuff
 			//App.window.close();
 			//App.window.setTitle($('title').text());
 			//App.terminate();
