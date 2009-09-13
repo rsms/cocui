@@ -18,7 +18,14 @@
 		3A4BEF3C10510E0700534481 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4BEF3B10510E0700534481 /* WebKit.framework */; };
 		3A4BEF4D1051100100534481 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BEF4C1051100100534481 /* index.html */; };
 		3A4BEF8410513E6400534481 /* EVWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BEF8310513E6400534481 /* EVWebView.m */; };
-		3A4BEFA7105141E900534481 /* EVJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BEFA6105141E900534481 /* EVJSBridge.m */; };
+		3AF3B962105BEA1100B3CBCC /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3B961105BEA1100B3CBCC /* default.css */; };
+		3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */; };
+		3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */; };
+		3AF3BA90105BFF0E00B3CBCC /* EVJSApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */; };
+		3AF3BB17105C0C6200B3CBCC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */; };
+		3AF3BB2E105C20F600B3CBCC /* WebScriptObject+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */; };
+		3AF3BB55105C27F700B3CBCC /* NSUserDefaults+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */; };
+		3AF3BB5A105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB59105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -49,8 +56,19 @@
 		3A4BEF4C1051100100534481 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = resources/index.html; sourceTree = "<group>"; };
 		3A4BEF8210513E6400534481 /* EVWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVWebView.h; path = src/EVWebView.h; sourceTree = "<group>"; };
 		3A4BEF8310513E6400534481 /* EVWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWebView.m; path = src/EVWebView.m; sourceTree = "<group>"; };
-		3A4BEFA5105141E900534481 /* EVJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVJSBridge.h; path = src/jsbridge/EVJSBridge.h; sourceTree = "<group>"; };
-		3A4BEFA6105141E900534481 /* EVJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVJSBridge.m; path = src/jsbridge/EVJSBridge.m; sourceTree = "<group>"; };
+		3AF3B961105BEA1100B3CBCC /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = resources/default.css; sourceTree = "<group>"; };
+		3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+EVJS.m"; path = "src/jsbridge/NSApplication+EVJS.m"; sourceTree = "<group>"; };
+		3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+EVJS.m"; path = "src/jsbridge/NSMutableDictionary+EVJS.m"; sourceTree = "<group>"; };
+		3AF3BA8E105BFF0E00B3CBCC /* EVJSApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVJSApp.h; path = src/jsbridge/EVJSApp.h; sourceTree = "<group>"; };
+		3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVJSApp.m; path = src/jsbridge/EVJSApp.m; sourceTree = "<group>"; };
+		3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = /System/Library/Frameworks/JavaScriptCore.framework; sourceTree = "<absolute>"; };
+		3AF3BB2C105C20F600B3CBCC /* WebScriptObject+EVJS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WebScriptObject+EVJS.h"; path = "src/WebScriptObject+EVJS.h"; sourceTree = "<group>"; };
+		3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebScriptObject+EVJS.m"; path = "src/WebScriptObject+EVJS.m"; sourceTree = "<group>"; };
+		3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+EVJS.m"; path = "src/jsbridge/NSUserDefaults+EVJS.m"; sourceTree = "<group>"; };
+		3AF3BB59105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaultsController+EVJS.m"; path = "src/jsbridge/NSUserDefaultsController+EVJS.m"; sourceTree = "<group>"; };
+		3AF3BBF7105C3C0D00B3CBCC /* WebInspectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebInspectorWindowController.h; sourceTree = "<group>"; };
+		3AF3BC1C105C421700B3CBCC /* FScript.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FScript.framework; path = /Library/Frameworks/FScript.framework; sourceTree = "<absolute>"; };
+		3AF3BC5C105C49CC00B3CBCC /* WebInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebInspector.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Cocui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -62,6 +80,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3A4BEF3C10510E0700534481 /* WebKit.framework in Frameworks */,
+				3AF3BB17105C0C6200B3CBCC /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +94,10 @@
 				3A4BEF0C1051095800534481 /* EVApp.m */,
 				3A4BEF8210513E6400534481 /* EVWebView.h */,
 				3A4BEF8310513E6400534481 /* EVWebView.m */,
+				3AF3BB2C105C20F600B3CBCC /* WebScriptObject+EVJS.h */,
+				3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */,
 				3A1BFB241051BD0F00FE3E7D /* js-bridge */,
+				3AF3BBF6105C3C0D00B3CBCC /* webkit-private */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -83,6 +105,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */,
 				3A4BEF3B10510E0700534481 /* WebKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -92,6 +115,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AF3BC1C105C421700B3CBCC /* FScript.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -131,6 +155,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AF3B961105BEA1100B3CBCC /* default.css */,
 				3A4BEF4C1051100100534481 /* index.html */,
 				3A4BC26A1051CF6F0080A8E5 /* jquery.js */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -153,10 +178,14 @@
 			isa = PBXGroup;
 			children = (
 				3A1BFA331051630C00FE3E7D /* jsbridge.h */,
+				3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */,
 				3A1BFA761051654B00FE3E7D /* NSWindow+EVJS.m */,
 				3A1BFB0710516BCD00FE3E7D /* NSDictionary+EVJS.m */,
-				3A4BEFA5105141E900534481 /* EVJSBridge.h */,
-				3A4BEFA6105141E900534481 /* EVJSBridge.m */,
+				3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */,
+				3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */,
+				3AF3BB59105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m */,
+				3AF3BA8E105BFF0E00B3CBCC /* EVJSApp.h */,
+				3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */,
 				3A1BFB6A1051BF9B00FE3E7D /* EVPoint.h */,
 				3A1BFB6B1051BF9B00FE3E7D /* EVPoint.m */,
 				3A1BFB751051C06C00FE3E7D /* EVSize.h */,
@@ -165,6 +194,16 @@
 				3A1BFB221051BD0800FE3E7D /* EVRect.m */,
 			);
 			name = "js-bridge";
+			sourceTree = "<group>";
+		};
+		3AF3BBF6105C3C0D00B3CBCC /* webkit-private */ = {
+			isa = PBXGroup;
+			children = (
+				3AF3BC5C105C49CC00B3CBCC /* WebInspector.h */,
+				3AF3BBF7105C3C0D00B3CBCC /* WebInspectorWindowController.h */,
+			);
+			name = "webkit-private";
+			path = "src/webkit-private";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +253,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				3A4BEF4D1051100100534481 /* index.html in Resources */,
+				3AF3B962105BEA1100B3CBCC /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +267,17 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				3A4BEF0D1051095800534481 /* EVApp.m in Sources */,
 				3A4BEF8410513E6400534481 /* EVWebView.m in Sources */,
-				3A4BEFA7105141E900534481 /* EVJSBridge.m in Sources */,
 				3A1BFA771051654B00FE3E7D /* NSWindow+EVJS.m in Sources */,
 				3A1BFB0810516BCD00FE3E7D /* NSDictionary+EVJS.m in Sources */,
 				3A1BFB231051BD0800FE3E7D /* EVRect.m in Sources */,
 				3A1BFB6C1051BF9B00FE3E7D /* EVPoint.m in Sources */,
 				3A1BFB771051C06C00FE3E7D /* EVSize.m in Sources */,
+				3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */,
+				3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */,
+				3AF3BA90105BFF0E00B3CBCC /* EVJSApp.m in Sources */,
+				3AF3BB2E105C20F600B3CBCC /* WebScriptObject+EVJS.m in Sources */,
+				3AF3BB55105C27F700B3CBCC /* NSUserDefaults+EVJS.m in Sources */,
+				3AF3BB5A105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +308,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/WebKit.framework/Versions/A/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -283,6 +332,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/WebKit.framework/Versions/A/Frameworks\"",
+				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

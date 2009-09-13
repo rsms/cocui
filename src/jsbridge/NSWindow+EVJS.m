@@ -30,7 +30,7 @@ EVJS_TRANSPOND_NAMES_PLAIN;
 }
 
 - (id)invokeUndefinedMethodFromWebScript:(NSString *)name withArguments:(NSArray *)args {
-	NSLog(@"undefined invoked: %@(%@)", name, args);
+	//NSLog(@"undefined invoked: %@(%@)", name, args);
 	return nil;
 }
 

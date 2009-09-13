@@ -4,38 +4,81 @@
 		<meta charset="utf-8">
 		<title>The window title</title>
 		<style type="text/css" media="screen">
-			body {
-				background-color:#979797; color:#fff;
+			html {
+				font-size:11px;
 			}
 		</style>
 		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
-			//$(function($){ $('h1').fadeOut(); });
-			console.log(ev);
-			console.log(ev.version);
-			ev.window.setTitle($('title').text());
-			var originalFrame = ev.window._frame;
-			//ev.window.close();
+		function test_ui() {
+			var originalFrame = App.window._frame;
 			console.log(originalFrame);
-			
 			var sequence = [null,
 				// Move window
-				function(){ ev.window._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
-				function(){ ev.window._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
-				function(){ ev.window._frame = originalFrame },
+				function(){ App.window._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
+				function(){ App.window._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
+				function(){ App.window._frame = originalFrame },
 				
 				// Toggle shadow
-				function(){ ev.window.setHasShadow(false) },
-				function(){ ev.window.setHasShadow(true) },
+				function(){ App.window.setHasShadow(false) },
+				function(){ App.window.setHasShadow(true) },
 				
 				// Remove the toolbar
-				function(){ ev.window.setToolbar(null) },
+				function(){ App.window.setToolbar(null) },
 				
 				// Toggle minimized
-				function(){ ev.window.miniaturize() },
-				function(){ ev.window.deminiaturize() }
+				function(){ App.window.miniaturize() },
+				function(){ App.window.deminiaturize() }
 			];
 			for (var i in sequence) setTimeout(sequence[i], 1000*(parseInt(i)+1));
+			// App.terminate();
+		}
+		
+		App.onOpenFiles = function() {
+			console.log("openFiles: " + arguments + ", arguments.length = "+arguments.length);
+			for (var i=0; i<arguments.length; i++)
+				console.log(" file "+i+": "+arguments[i]);
+		}
+		
+		$(function(){
+			// Some basic properties
+			console.log(App);
+			console.log(App.version);
+			console.log(App.window);
+			
+			// Present our application on screen
+			App.window.makeKeyAndOrderFront();
+			
+			// User defaults
+			console.log(App.defaults);
+			console.log(App.defaults.someKey()); // get someKey
+			console.log(App.defaults.stringForKey('someKey')); // get someKey
+			App.defaults.someKey('hej'); // set someKey
+			console.log(App.defaults.someKey()); // get someKey
+			console.log(App.defaults.stringForKey('someKey')); // get someKey
+			App.defaults.removeObjectForKey('someKey'); // remove someKey
+			
+			
+			console.log("xy", window);
+			
+			/*$.get("http://hunch.se/", function(data){
+				console.log("Data Loaded: " + data);
+			});*/
+			
+			// events
+			document.addEventListener("applicationWillBecomeActive", function(ev){
+				console.log("app is becoming active");
+			}, false);
+			document.addEventListener("applicationWillResignActive", function(ev){
+				console.log("app resigns active");
+			}, false);
+			
+			
+			//test_ui();
+			//App.window.close();
+			//App.window.setTitle($('title').text());
+			//App.terminate();
+		});
 		</script>
 	</head>
 	<body>

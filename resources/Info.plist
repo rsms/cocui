@@ -24,5 +24,20 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>EVApp</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>*</string>
+				<string>txt</string>
+				<string>text</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Text</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 </dict>
 </plist>

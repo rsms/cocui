@@ -15,11 +15,9 @@
 
 #define EVJS_EXPOSE_CLASS(_clsname_)\
 	@implementation _clsname_ (EVJSExposure)\
-	+ (BOOL)isKeyExcludedFromWebScript:(const char *)name { return NO; }\
-	+ (BOOL)isSelectorExcludedFromWebScript:(SEL)sel { return NO; }\
+	EVJS_EXPOSE_THIS_CLASS\
 	@end
 
-#import "EVJSBridge.h"
 #import "EVPoint.h"
 #import "EVSize.h"
 #import "EVRect.h"

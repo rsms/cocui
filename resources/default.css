@@ -1,0 +1,15 @@
+html {
+	background:transparent; color:#000;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	font-family:'lucida grande';
+	font-size:11px;
+}
+body {
+	margin:20px;
+	padding:0;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: helvetica;
+}
