@@ -21,7 +21,7 @@ Everyone love bullet-points:
 - Full control over NSApp (terminating, etc through "App.app")
 - Access to NSUserDefaults (system-native application settings) through "App.defaults"
 - Single namespace exposes the "bridge" between Cocoa and Javascript -- "App"
-- Most of these things demonstrated in the demo app (resources/index.html)
+- Most of these things demonstrated in the demo app [resources/index.html](http://github.com/rsms/cocui/blob/master/resources/index.html)
 
 The Javascript-to-Cocoa bridge enables access to most things, like your NSApplication and your NSWindow.
 
