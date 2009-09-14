@@ -4,6 +4,10 @@ COCoa User Interface mockup.
 
 For rapidly building functional Cocoa applications using WebKit (HTML, CSS and JavaScript).
 
+> Download latest release: [Cocui.zip](http://cloud.github.com/downloads/rsms/cocui/Cocui.zip)
+
+<small>(_Requires Mac OS X 10.5 or later_)</small>
+
 ## What awesome stuff can I do?
 
 Everyone love bullet-points:
@@ -21,11 +25,17 @@ Everyone love bullet-points:
 
 The Javascript-to-Cocoa bridge enables access to most things, like your NSApplication and your NSWindow.
 
-The demo app [resources/index.html](http://github.com/rsms/cocui/blob/master/resources/index.html) runs a sequence of functions with 1 second delay (for demonstrational purposes). It shows how to manipulate the window frame (and while doing so also use native animation), shadow, miniaturize/deminiaturize, change window title and more.
-
 You can do stuff like this:
 
-	<a href="javascript:App.window.miniaturize()">Minimize application</a>
+	<a href="javascript:Win.miniaturize()">Minimize application</a>
+
+and
+
+	var window = App.loadWindow({
+	  uri: 'index.html',
+	  rect: { size: { width: 500, height: 400 } }
+	})
+	window.makeKeyAndOrderFront();
 
 Native drag and drop is [already supported by WebKit](http://developer.apple.com/mac/library/documentation/AppleApplications/Conceptual/SafariJSProgTopics/Tasks/DragAndDrop.html#//apple_ref/doc/uid/30001233-BAJGJJAH).
 
@@ -50,3 +60,8 @@ Enable for the demo app:
 	$ defaults write se.notion.Cocui DevelopmentMode -bool yes
 
 You need to restart the native app after changing this key. Afterwards, a new menu item will appear: "Develop".
+
+
+## Creating a new project
+
+You create a new app project by running the Cocui application. Choose a name and a UTI (and optionally a few other things, like icon and document types). Cocui will then create a new project for you and get you going. If you have TextMate or SubEthaEdit, your editor will launch together with your new application.
