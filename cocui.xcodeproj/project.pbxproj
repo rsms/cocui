@@ -74,8 +74,8 @@
 		3A114F75105D760300921886 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = resources/main.js; sourceTree = "<group>"; };
 		3A114FB3105D7CEA00921886 /* CUWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUWindow.h; path = src/CUWindow.h; sourceTree = "<group>"; };
 		3A114FB4105D7CEA00921886 /* CUWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUWindow.m; path = src/CUWindow.m; sourceTree = "<group>"; };
-		3A114FB6105D81BA00921886 /* CUApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUApp.h; sourceTree = "<group>"; };
-		3A114FB7105D81BA00921886 /* CUApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUApp.m; sourceTree = "<group>"; };
+		3A114FB6105D81BA00921886 /* CUApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUApp.h; path = src/CUApp.h; sourceTree = "<group>"; };
+		3A114FB7105D81BA00921886 /* CUApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUApp.m; path = src/CUApp.m; sourceTree = "<group>"; };
 		3A115151105DB08200921886 /* NSString+CUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CUAdditions.h"; path = "src/NSString+CUAdditions.h"; sourceTree = "<group>"; };
 		3A115152105DB08200921886 /* NSString+CUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CUAdditions.m"; path = "src/NSString+CUAdditions.m"; sourceTree = "<group>"; };
 		3A115246105DC6DC00921886 /* NSDictionary+CUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CUAdditions.h"; path = "src/NSDictionary+CUAdditions.h"; sourceTree = "<group>"; };
