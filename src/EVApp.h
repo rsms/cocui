@@ -1,14 +1,13 @@
 #import "EVWebView.h"
-#import "EVJSApp.h"
+#import "CUApp.h"
 
-@class WebInspector, WebInspectorWindowController;
+@class WebInspector, WebInspectorWindowController, EVApp;
+
+extern EVApp *g_app; // global instance of application
 
 @interface EVApp : NSApplication {
-	EVJSApp *jsapp; // "App" namespace exposed in Javascript
+	CUApp *jsapp; // "App" namespace exposed in Javascript
 	BOOL developmentMode;
-	JSContextRef jctx; // global scripting context
-	IBOutlet NSWindow *mainWindow;
-	IBOutlet EVWebView *webView;
 	
 	IBOutlet NSWindow *logPanel;
 	IBOutlet NSTextView *logTextView;
@@ -18,9 +17,18 @@
 	WebInspectorWindowController *webInspectorWindowController;
 }
 
--(WebInspector *)webInspector;
+@property(readonly) BOOL developmentMode;
+
++ (EVApp *)instance;
+
+-(void)loadMainScript;
+
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showConsole:(id)sender;
+-(IBAction)reloadApp:(id)sender;
+
+-(WebInspector *)webInspector;
+
 -(void)dlog:(NSString *)format, ...;
 -(void)dlog:(NSString *)format args:(va_list)args;
 

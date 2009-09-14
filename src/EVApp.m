@@ -9,7 +9,7 @@
 	#import <FScript/FScript.h>
 #endif
 
-#define kEVJavascriptNamespace @"App"
+EVApp *g_app = NULL;
 
 
 @implementation WebInspectorWindowController (OverrideCloseAction)
@@ -23,13 +23,29 @@
 
 @implementation EVApp
 
+@synthesize developmentMode;
+
++ (EVApp *)instance {
+	if (!g_app)
+		[[EVApp alloc] init];
+	return g_app;
+}
+
+
 - (id)init {
+	NSLog(@"-[EVApp init]");
 	[super init];
+	g_app = self;
 	[self setDelegate:self];
 	
-	jsapp = [[EVJSApp alloc] init];
-	jsapp.version = @"0.0.1";
-	jsapp.app = self;
+	WebPreferences *preferences = [WebPreferences standardPreferences];
+	[preferences setUserStyleSheetLocation:[[NSURL alloc] 
+											initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"default" ofType:@"css"]
+											isDirectory:false]];
+	[preferences setUserStyleSheetEnabled:YES];
+	
+	jsapp = [[CUApp alloc] initWithWebPreferences:preferences];
+	jsapp.version = @"0.0.1"; // todo read from Info.plist
 	jsapp.defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
 	jsapp.defaults = [jsapp.defaultsController defaults];
 	
@@ -51,6 +67,8 @@
 }
 
 - (void)awakeFromNib {
+	if (!g_app)
+		g_app = self;
 	if (developmentMode) {
 		NSRange er;
 		logTextAttrs = [[logTextView textStorage] attributesAtIndex:0 effectiveRange:&er];
@@ -86,49 +104,47 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Set ourselves as delegate for frame loading and UI
-	[webView setFrameLoadDelegate:self];
-	[webView setUIDelegate:self];
-	
-	// do not draw solid background by default
-	[webView setDrawsBackground:NO];
-	
 	// F-Script
 #if WITH_FSCRIPT
 	[[NSApp mainMenu] addItem:[[FScriptMenuItem alloc] init]];
 #endif
+	[self loadMainScript];
+}
+
+
+-(void)loadMainScript {
+	NSString *mainsrc, *errDesc, *mainpath = [[NSBundle mainBundle] pathForResource:@"main" ofType:@"js"];
+	NSStringEncoding charenc;
+	NSError *err = nil;
 	
-	// update jsapp
-	jsapp.window = mainWindow;
-	
-	// set webview prefs
-	WebPreferences *preferences = [WebPreferences standardPreferences];
-	[preferences setUserStyleSheetLocation:[[NSURL alloc] 
-											initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"default" ofType:@"css"]
-											isDirectory:false]];
-	[preferences setUserStyleSheetEnabled:YES];
-	[webView setPreferences:preferences];
-	
-	// load index.html
-	NSURL *indexURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"] isDirectory:false];
-#if 0
-	indexURL = [[NSURL alloc] 
-				initFileURLWithPath:@"/Users/rasmus/src/cocojs/resources/index.html"
-				isDirectory:false];
-	
-#endif
-	NSLog(@"indexURL = %@", indexURL);
-	NSURLRequest *req = [NSURLRequest requestWithURL:indexURL];
-	[[webView mainFrame] loadRequest:req];
-	//NSURL *baseURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] resourcePath] isDirectory:YES];
+	while (1) {
+		mainsrc = [NSString stringWithContentsOfFile:mainpath usedEncoding:&charenc error:&err];
+		if (!mainsrc || err) {
+			[[NSAlert alertWithError:err] runModal];
+			[NSApp terminate:self];
+		}
+		[self dlog:@"executing %@ with character encoding %d", mainpath, charenc];
+		if ([jsapp evaluateWebScript:mainsrc errorDesc:&errDesc])
+			break;
+		[self dlog:@"%@ failed to execute: %@", mainpath, errDesc];
+		NSInteger buttonClicked = [[NSAlert alertWithMessageText:@"Failed to start application" 
+												   defaultButton:@"Reload and Retry" 
+												 alternateButton:@"Quit" 
+													 otherButton:nil 
+									   informativeTextWithFormat:@"%@\n\nIn %@", errDesc, mainpath] runModal];
+		if (buttonClicked == 0) {
+			[NSApp terminate:self];
+			break;
+		}
+	}
 }
 
 
 -(WebInspector *)webInspector {
 	if (!webInspector)
-		webInspector = [[NSClassFromString(@"WebInspector") alloc] initWithWebView:webView];
+		webInspector = [[NSClassFromString(@"WebInspector") alloc] initWithWebView:jsapp.webView];
 	if (!webInspectorWindowController)
-		webInspectorWindowController = [[NSClassFromString(@"WebInspectorWindowController") alloc] initWithInspectedWebView:webView];
+		webInspectorWindowController = [[NSClassFromString(@"WebInspectorWindowController") alloc] initWithInspectedWebView:jsapp.webView];
 	return webInspector;
 }
 
@@ -147,6 +163,11 @@
 	[[self webInspector] showConsole:webInspectorWindowController];
 }
 
+-(IBAction)reloadApp:(id)sender {
+	[self dlog:@"reloading main.js"];
+	[self loadMainScript];
+}
+
 
 #pragma mark -
 #pragma mark NSApplication delegate methods
@@ -155,7 +176,7 @@
 
 #define _NOTIFICATION_TO_JSEVENT(_name_)\
 - (void)_name_:(NSNotification *)notification {\
-	DOMDocument *d = [[webView mainFrame] DOMDocument];\
+	DOMDocument *d = [[jsapp.webView mainFrame] DOMDocument];\
 	if (d) {\
 		DOMEvent *ev = [d createEvent:@"Event"];\
 		[ev initEvent:@"" #_name_ canBubbleArg:NO cancelableArg:YES];\
@@ -176,102 +197,11 @@ _NOTIFICATION_TO_JSEVENT(applicationDidUnhide)
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
 	NSLog(@"openFiles: %@", filenames);
-	
 	// call onOpenFiles callback, if present
 	if (jsapp.onOpenFiles)
-		[jsapp.onOpenFiles invokeWithArguments:filenames inContext:jctx];
+		[jsapp.onOpenFiles invokeWithArguments:filenames inContext:[[jsapp.webView mainFrame] globalContext]];
 }
 
-
-#pragma mark -
-#pragma mark WebFrameLoadDelegate methods
-
-- (void)webView:(WebView *)sender didCommitLoadForFrame:(WebFrame *)frame {
-	// expose jsns namespace in javascript
-	// the script object need to be updated before every page load
-	[[webView windowScriptObject] setValue:jsapp forKey:kEVJavascriptNamespace];
-	jctx = [[webView mainFrame] globalContext];
-	if (developmentMode) {
-		NSMutableURLRequest *req = [[frame dataSource] request];
-		[self dlog:@"commit %@ %@ in %@", [req HTTPMethod], [req URL], frame];
-	}
-}
-
-
-- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame {
-	if (frame == [webView mainFrame]) {
-		[mainWindow setTitle:title];
-	}
-}
-
-
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
-	NSLog(@"[%@] loaded", frame);
-	if (developmentMode) {
-		NSMutableURLRequest *req = [[frame dataSource] request];
-		[self dlog:@"completed %@ %@ in %@", [req HTTPMethod], [req URL], frame];
-	}
-}
-
-- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame {
-	NSLog(@"[%@] failed to load: %@", frame, error);
-	if (developmentMode) {
-		NSMutableURLRequest *req = [[frame dataSource] request];
-		[self dlog:@"failed %@ %@ in %@: %@", [req HTTPMethod], [req URL], frame, error];
-	}
-}
-
-
-#pragma mark -
-#pragma mark WebUIDelegate methods
-
-/*- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems
-{
-	// disable contextual menu for the webView
-	return nil;
-}*/
-
-/*
- This method is invoked when the dragged content is dropped and the sender is about to perform the source action. Invoked after the last invocation of the webView:dragSourceActionMaskForPoint: method. Gives the delegate an opportunity to modify the contents of the object on pasteboard before completing the source action.
- */
-- (void)webView:(WebView *)sender willPerformDragSourceAction:(WebDragSourceAction)action fromPoint:(NSPoint)point withPasteboard:(NSPasteboard *)pasteboard {
-	NSLog(@"dropping %@", pasteboard);
-}
-
-
-- (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame {
-	NSLog(@"ALERT [%@] %@", frame, message);
-	NSBeginInformationalAlertSheet(@"Notice", nil, nil, nil, [sender window], nil, NULL, NULL, NULL, message);
-}
-
-
-/*- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {
-	return defaultMenuItems;
-}*/
-
-
-#pragma mark -
-#pragma mark WebResourceLoadDelegate methods
-
-// We can use this to disallow certain requests (including XHR)
-/*
- [webView setResourceLoadDelegate:self];
- - (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource {
- NSLog(@"request %@ (%@) (%@)", request, identifier, dataSource);
- return request;
- }*/
-
-
-#pragma mark -
-#pragma mark Unofficial delegate methods
-
-
-- (void)webView:(WebView *)sender addMessageToConsole:(NSDictionary *)message {
-	NSNumber *lineNumber = [message objectForKey:@"lineNumber"];
-	id msg = [message objectForKey:@"message"];
-	NSURL *sourceURL = [message objectForKey:@"sourceURL"];
-	[self dlog:@"[%@:%@] %@", sourceURL, lineNumber, msg];
-}
 
 
 @end

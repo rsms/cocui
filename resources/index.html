@@ -1,37 +1,70 @@
 <!DOCTYPE HTML>
 <html lang="en">
+	<!--
+		This app is meant as means of demonstration and is thus
+		kind of messy at first sight.
+		
+		You can simply replace this whole file with something own if you like.
+	-->
 	<head>
 		<meta charset="utf-8">
 		<title>The window title</title>
 		<style type="text/css" media="screen">
-			html {
-				font-size:11px;
+			#response {
+				font-family:monospace;
+				font-size:10px;
+				white-space:pre;
+				border:1px solid #888;
+				overflow:auto;
+				background:white;
+				padding:2px;
+				position:absolute;
+				bottom:20px;
+				left:20px;
+				top:150px;
+				right:20px;
+			}
+			#url {
+				width:200px;
 			}
 		</style>
 		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
-		function test_ui() {
-			var originalFrame = App.window._frame;
+		function demo_animation() {
+			var originalFrame = Win._frame;
 			console.log(originalFrame);
+			$('button').get(0).disabled = true;
 			var sequence = [null,
 				// Move window
-				function(){ App.window._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
-				function(){ App.window._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
-				function(){ App.window._frame = originalFrame },
+				function(){ Win._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
+				function(){ Win._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
+				function(){ Win._frame = originalFrame },
 				
 				// Toggle shadow
-				function(){ App.window.setHasShadow(false) },
-				function(){ App.window.setHasShadow(true) },
+				function(){ Win.setHasShadow(false) },
+				function(){ Win.setHasShadow(true) },
 				
 				// Remove the toolbar
-				function(){ App.window.setToolbar(null) },
+				//function(){ Win.setToolbar(null) },
 				
 				// Toggle minimized
-				function(){ App.window.miniaturize() },
-				function(){ App.window.deminiaturize() }
+				function(){ Win.miniaturize() },
+				function(){ Win.deminiaturize() },
+				
+				function(){ $('button').get(0).disabled = false; }
 			];
-			for (var i in sequence) setTimeout(sequence[i], 1000*(parseInt(i)+1));
+			for (var i in sequence) {
+				i = parseInt(i);
+				setTimeout(sequence[i], 1000*i);
+			}
 			// App.terminate();
+		}
+		
+		function demo_get_remote(url) {
+			$('#response').text("");
+			$.get(url, function(data){
+				$('#response').text(data);
+			});
 		}
 		
 		// Register a handler for opening files
@@ -45,10 +78,7 @@
 			// Some basic properties
 			console.log(App);
 			console.log(App.version);
-			console.log(App.window);
-			
-			// Present our application on screen
-			App.window.makeKeyAndOrderFront();
+			console.log(Win);
 			
 			// User defaults
 			console.log(App.defaults);
@@ -73,7 +103,7 @@
 			}, false);
 			
 			// Run a few animated demonstrations
-			//test_ui();
+			//demo_animation();
 			
 			// Misc stuff
 			//App.window.close();
@@ -83,12 +113,21 @@
 		</script>
 	</head>
 	<body>
-		<header>
-			<h1>Fancy example</h1>
-			<nav></nav>
-		</header>
 		<section>
-			hello
+			<p>
+				Hello. I'm text and I'm happy.
+			</p>
+			<p>
+				<button onclick="demo_animation()">Run animated demo</button>
+			</p>
+			<hr>
+			<p>
+				<input type="text" id="url" value="http://hunch.se/">
+				<button onclick="demo_get_remote($('#url').get(0).value)">Fetch remote content</button>
+			</p>
+			<p>
+				<div id="response"></div>
+			</p>
 		</section>
 		<footer>
 			<address></address>

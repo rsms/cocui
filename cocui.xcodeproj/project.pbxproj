@@ -13,6 +13,11 @@
 		3A114F53105D600100921886 /* IconFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114F4F105D600100921886 /* IconFamily.m */; };
 		3A114F54105D600100921886 /* NSString+CarbonFSRefCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114F51105D600100921886 /* NSString+CarbonFSRefCreation.m */; };
 		3A114F63105D610B00921886 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A114F62105D610B00921886 /* Carbon.framework */; };
+		3A114F7B105D763500921886 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 3A114F75105D760300921886 /* main.js */; };
+		3A114FB5105D7CEA00921886 /* CUWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114FB4105D7CEA00921886 /* CUWindow.m */; };
+		3A114FB8105D81BA00921886 /* CUApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114FB7105D81BA00921886 /* CUApp.m */; };
+		3A115153105DB08200921886 /* NSString+CUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A115152105DB08200921886 /* NSString+CUAdditions.m */; };
+		3A115248105DC6DC00921886 /* NSDictionary+CUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A115247105DC6DC00921886 /* NSDictionary+CUAdditions.m */; };
 		3A1183CD105D1CA30058B542 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1183CC105D1CA30058B542 /* main.xib */; };
 		3A1183D4105D25750058B542 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1183D0105D25750058B542 /* main.m */; };
 		3A1BFA771051654B00FE3E7D /* NSWindow+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BFA761051654B00FE3E7D /* NSWindow+EVJS.m */; };
@@ -30,7 +35,6 @@
 		3AF3B962105BEA1100B3CBCC /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3B961105BEA1100B3CBCC /* default.css */; };
 		3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */; };
 		3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */; };
-		3AF3BA90105BFF0E00B3CBCC /* EVJSApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */; };
 		3AF3BB17105C0C6200B3CBCC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */; };
 		3AF3BB2E105C20F600B3CBCC /* WebScriptObject+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */; };
 		3AF3BB55105C27F700B3CBCC /* NSUserDefaults+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */; };
@@ -45,7 +49,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Template */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = Template;
 		};
 /* End PBXContainerItemProxy section */
@@ -67,6 +71,15 @@
 		3A114F51105D600100921886 /* NSString+CarbonFSRefCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CarbonFSRefCreation.m"; sourceTree = "<group>"; };
 		3A114F52105D600100921886 /* NSString+CarbonFSRefCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CarbonFSRefCreation.h"; sourceTree = "<group>"; };
 		3A114F62105D610B00921886 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3A114F75105D760300921886 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = resources/main.js; sourceTree = "<group>"; };
+		3A114FB3105D7CEA00921886 /* CUWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUWindow.h; path = src/CUWindow.h; sourceTree = "<group>"; };
+		3A114FB4105D7CEA00921886 /* CUWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUWindow.m; path = src/CUWindow.m; sourceTree = "<group>"; };
+		3A114FB6105D81BA00921886 /* CUApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUApp.h; sourceTree = "<group>"; };
+		3A114FB7105D81BA00921886 /* CUApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUApp.m; sourceTree = "<group>"; };
+		3A115151105DB08200921886 /* NSString+CUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CUAdditions.h"; path = "src/NSString+CUAdditions.h"; sourceTree = "<group>"; };
+		3A115152105DB08200921886 /* NSString+CUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CUAdditions.m"; path = "src/NSString+CUAdditions.m"; sourceTree = "<group>"; };
+		3A115246105DC6DC00921886 /* NSDictionary+CUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CUAdditions.h"; path = "src/NSDictionary+CUAdditions.h"; sourceTree = "<group>"; };
+		3A115247105DC6DC00921886 /* NSDictionary+CUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CUAdditions.m"; path = "src/NSDictionary+CUAdditions.m"; sourceTree = "<group>"; };
 		3A1183CC105D1CA30058B542 /* main.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = main.xib; path = manager/main.xib; sourceTree = "<group>"; };
 		3A1183CF105D25750058B542 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1183D0105D25750058B542 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,8 +106,6 @@
 		3AF3B961105BEA1100B3CBCC /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = resources/default.css; sourceTree = "<group>"; };
 		3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+EVJS.m"; path = "src/jsbridge/NSApplication+EVJS.m"; sourceTree = "<group>"; };
 		3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+EVJS.m"; path = "src/jsbridge/NSMutableDictionary+EVJS.m"; sourceTree = "<group>"; };
-		3AF3BA8E105BFF0E00B3CBCC /* EVJSApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EVJSApp.h; path = src/jsbridge/EVJSApp.h; sourceTree = "<group>"; };
-		3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVJSApp.m; path = src/jsbridge/EVJSApp.m; sourceTree = "<group>"; };
 		3AF3BB16105C0C6200B3CBCC /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = /System/Library/Frameworks/JavaScriptCore.framework; sourceTree = "<absolute>"; };
 		3AF3BB2C105C20F600B3CBCC /* WebScriptObject+EVJS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WebScriptObject+EVJS.h"; path = "src/WebScriptObject+EVJS.h"; sourceTree = "<group>"; };
 		3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "WebScriptObject+EVJS.m"; path = "src/WebScriptObject+EVJS.m"; sourceTree = "<group>"; };
@@ -137,8 +148,16 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				3A4BEF0B1051095800534481 /* EVApp.h */,
 				3A4BEF0C1051095800534481 /* EVApp.m */,
+				3A114FB6105D81BA00921886 /* CUApp.h */,
+				3A114FB7105D81BA00921886 /* CUApp.m */,
+				3A114FB3105D7CEA00921886 /* CUWindow.h */,
+				3A114FB4105D7CEA00921886 /* CUWindow.m */,
 				3A4BEF8210513E6400534481 /* EVWebView.h */,
 				3A4BEF8310513E6400534481 /* EVWebView.m */,
+				3A115151105DB08200921886 /* NSString+CUAdditions.h */,
+				3A115152105DB08200921886 /* NSString+CUAdditions.m */,
+				3A115246105DC6DC00921886 /* NSDictionary+CUAdditions.h */,
+				3A115247105DC6DC00921886 /* NSDictionary+CUAdditions.m */,
 				3AF3BB2C105C20F600B3CBCC /* WebScriptObject+EVJS.h */,
 				3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */,
 				3A1BFB241051BD0F00FE3E7D /* js-bridge */,
@@ -195,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF3B961105BEA1100B3CBCC /* default.css */,
+				3A114F75105D760300921886 /* main.js */,
 				3A4BEF4C1051100100534481 /* index.html */,
 				3A4BC26A1051CF6F0080A8E5 /* jquery.js */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -242,8 +262,6 @@
 				3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */,
 				3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */,
 				3AF3BB59105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m */,
-				3AF3BA8E105BFF0E00B3CBCC /* EVJSApp.h */,
-				3AF3BA8F105BFF0E00B3CBCC /* EVJSApp.m */,
 				3A1BFB6A1051BF9B00FE3E7D /* EVPoint.h */,
 				3A1BFB6B1051BF9B00FE3E7D /* EVPoint.m */,
 				3A1BFB751051C06C00FE3E7D /* EVSize.h */,
@@ -337,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A4BC26E1051CF9A0080A8E5 /* jquery.js in Resources */,
+				3A114F7B105D763500921886 /* main.js in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				3A4BEF4D1051100100534481 /* index.html in Resources */,
 				3AF3B962105BEA1100B3CBCC /* default.css in Resources */,
@@ -373,10 +392,13 @@
 				3A1BFB771051C06C00FE3E7D /* EVSize.m in Sources */,
 				3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */,
 				3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */,
-				3AF3BA90105BFF0E00B3CBCC /* EVJSApp.m in Sources */,
 				3AF3BB2E105C20F600B3CBCC /* WebScriptObject+EVJS.m in Sources */,
 				3AF3BB55105C27F700B3CBCC /* NSUserDefaults+EVJS.m in Sources */,
 				3AF3BB5A105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m in Sources */,
+				3A114FB5105D7CEA00921886 /* CUWindow.m in Sources */,
+				3A114FB8105D81BA00921886 /* CUApp.m in Sources */,
+				3A115153105DB08200921886 /* NSString+CUAdditions.m in Sources */,
+				3A115248105DC6DC00921886 /* NSDictionary+CUAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

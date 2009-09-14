@@ -1,5 +1,4 @@
-// expose most of foundation and appkit
-// TODO alot...
+#import <JavaScriptCore/JavaScriptCore.h>
 
 #define EVJS_EXPOSE_THIS_CLASS\
 	+ (BOOL)isKeyExcludedFromWebScript:(const char *)name { return NO; }\
