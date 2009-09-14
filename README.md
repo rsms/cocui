@@ -8,7 +8,7 @@ For rapidly building functional Cocoa applications using WebKit (HTML, CSS and J
 
 <small>(_Requires Mac OS X 10.5 or later_)</small>
 
-## What awesome stuff can I do?
+## What awesome stuff can I do with this?
 
 Everyone love bullet-points:
 
