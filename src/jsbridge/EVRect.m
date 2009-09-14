@@ -2,8 +2,8 @@
 
 @implementation EVRect
 
-EVJS_EXPOSE_THIS_CLASS;
-EVJS_TRANSPOND_NAMES_PLAIN;
+CUJS_EXPOSE_THIS_CLASS;
+CUJS_TRANSPOND_NAMES_PLAIN;
 
 @synthesize origin, size;
 

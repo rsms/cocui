@@ -32,6 +32,8 @@
 		3A4BEF8410513E6400534481 /* EVWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BEF8310513E6400534481 /* EVWebView.m */; };
 		3A6A0B4C105D17590035640D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		3A6A0B6F105D183A0035640D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A0B6D105D183A0035640D /* MainMenu.xib */; };
+		3AEE4417105E943500E89C47 /* CUWin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE4416105E943500E89C47 /* CUWin.m */; };
+		3AEE44F0105EADA300E89C47 /* jsbridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE44EF105EADA300E89C47 /* jsbridge.m */; };
 		3AF3B962105BEA1100B3CBCC /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 3AF3B961105BEA1100B3CBCC /* default.css */; };
 		3AF3B9CD105BF88700B3CBCC /* NSApplication+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */; };
 		3AF3B9E5105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */; };
@@ -103,6 +105,9 @@
 		3A4BEF8310513E6400534481 /* EVWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EVWebView.m; path = src/EVWebView.m; sourceTree = "<group>"; };
 		3A6A0B52105D17590035640D /* Cocui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6A0B6E105D183A0035640D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3AEE4415105E943500E89C47 /* CUWin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUWin.h; path = src/CUWin.h; sourceTree = "<group>"; };
+		3AEE4416105E943500E89C47 /* CUWin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUWin.m; path = src/CUWin.m; sourceTree = "<group>"; };
+		3AEE44EF105EADA300E89C47 /* jsbridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = jsbridge.m; path = src/jsbridge/jsbridge.m; sourceTree = "<group>"; };
 		3AF3B961105BEA1100B3CBCC /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = resources/default.css; sourceTree = "<group>"; };
 		3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSApplication+EVJS.m"; path = "src/jsbridge/NSApplication+EVJS.m"; sourceTree = "<group>"; };
 		3AF3B9E4105BFA4D00B3CBCC /* NSMutableDictionary+EVJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+EVJS.m"; path = "src/jsbridge/NSMutableDictionary+EVJS.m"; sourceTree = "<group>"; };
@@ -152,6 +157,8 @@
 				3A114FB7105D81BA00921886 /* CUApp.m */,
 				3A114FB3105D7CEA00921886 /* CUWindow.h */,
 				3A114FB4105D7CEA00921886 /* CUWindow.m */,
+				3AEE4415105E943500E89C47 /* CUWin.h */,
+				3AEE4416105E943500E89C47 /* CUWin.m */,
 				3A4BEF8210513E6400534481 /* EVWebView.h */,
 				3A4BEF8310513E6400534481 /* EVWebView.m */,
 				3A115151105DB08200921886 /* NSString+CUAdditions.h */,
@@ -256,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1BFA331051630C00FE3E7D /* jsbridge.h */,
+				3AEE44EF105EADA300E89C47 /* jsbridge.m */,
 				3AF3B9CC105BF88700B3CBCC /* NSApplication+EVJS.m */,
 				3A1BFA761051654B00FE3E7D /* NSWindow+EVJS.m */,
 				3A1BFB0710516BCD00FE3E7D /* NSDictionary+EVJS.m */,
@@ -399,6 +407,8 @@
 				3A114FB8105D81BA00921886 /* CUApp.m in Sources */,
 				3A115153105DB08200921886 /* NSString+CUAdditions.m in Sources */,
 				3A115248105DC6DC00921886 /* NSDictionary+CUAdditions.m in Sources */,
+				3AEE4417105E943500E89C47 /* CUWin.m in Sources */,
+				3AEE44F0105EADA300E89C47 /* jsbridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,6 +2,8 @@
 #import "WebScriptObject+EVJS.h"
 #import "NSDictionary+CUAdditions.h"
 
+#import <ApplicationServices/ApplicationServices.h>
+
 #import "EVApp.h"
 #import "CUApp.h"
 #import "CUWindow.h"
@@ -14,7 +16,7 @@
 @synthesize onOpenFiles;
 
 // some:thing -> some_thing()
-EVJS_TRANSPOND_NAMES_PLAIN
+CUJS_TRANSPOND_NAMES_PLAIN
 
 // allow access to all properties
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name { return NO; }
@@ -31,6 +33,7 @@ EVJS_TRANSPOND_NAMES_PLAIN
 -(id)initWithWebPreferences:(WebPreferences *)preferences {
 	self = [super init];
 	_webPrefs = preferences;
+	fullscreen = -1;
 	webView = [[WebView alloc] initWithFrame:NSMakeRect(0.0, 0.0, 10.0, 10.0) frameName:@"main" groupName:@"app"];
 	[webView setFrameLoadDelegate:self];
 	[webView setUIDelegate:self];
@@ -74,56 +77,135 @@ EVJS_TRANSPOND_NAMES_PLAIN
  Arguments:
  {
 	uri: string     // e.g. "index.html" or "http://some.thing/"
+	name: string    // causes the window frame to be saved in defaults as "nameWindow"
 	rect: {
 		origin: {x: float, y: float}
 		size: {width: float, height: float}
 	}
-	 style: {
+	style: {
 		titled: bool (true)
 		closable: bool (true)
 		miniaturizable: bool (true)
 		resizable: bool (true)
-		borderless: bool (false)
 		textured: bool (false)
+		borderless: bool (false)   // if set, the only valid styles are textured and shadow
+		shadow: bool (true)
 	}
+	fullscreen: bool (false)     // if set, no default style is set (style can still be explicitly set)
 	defer: bool (false)
+	level: string|int ("normal")
  }
+ 
+ Considered future options:
+ 
+	fullscreen: bool (false)
+ 
+ Window level names: (starting from lowest to highest in the z dimension)
+ 
+	Minimum, Desktop, BackstopMenu, Normal, Floating, TornOffMenu, Dock, MainMenu,
+	Status, ModalPanel, PopUpMenu, Dragging, ScreenSaver, Maximum, Overlay, Help,
+	Utility, DesktopIcon, Cursor
  */
--(id)loadWindow:(WebScriptObject *)jsargs {
-	NSURL *url;
-	NSString *uri;
+-(CUWin *)createWindow:(WebScriptObject *)jsargs {
+	NSURL *url = nil;
+	NSString *uri = nil, *name = nil;
 	NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
 	NSRect contentRect = NSMakeRect(-1.0, -1.0, 300.0, 400.0);
-	NSUInteger styleMask = 0;
-	//NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask;
-	BOOL defer = NO;
+	NSUInteger styleMask = NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask;
+	BOOL defer = NO, shadow = YES, _fullscreen = NO;
 	JSContextRef ctx = [[webView mainFrame] globalContext];
+	CGWindowLevel windowLevel = kCGNormalWindowLevel;
+	id args = nil;
 	
-	id args = [jsargs cocoaRepresentationInContext:ctx];
+	if ([jsargs respondsToSelector:@selector(cocoaRepresentationInContext:)])
+		args = [jsargs cocoaRepresentationInContext:ctx];
 	
-	if (![[args class] isSubclassOfClass:[NSDictionary class]]) {
+	if (!args || ![[args class] isSubclassOfClass:[NSDictionary class]]) {
 		// simple string input (or something else that's not a dict)
-		uri = args;
+		uri = (NSString *)jsargs;
 	}
 	else {
 		// keyword arguments
 		NSNumber *n;
+		NSString *s;
+		NSDictionary *d;
 		
-		if (!(uri = [args objectForKey:@"uri"])) {
+		//#define BOPT(key, assignto) do { if((n = [args objectForKey:key])) defer = [n boolValue]; } while(0)
+		
+		uri = [args objectForKey:@"uri"];
+		name = [args objectForKey:@"name"];
+		
+		/*if (!uri) {
 			[jsargs setException:@"missing \"uri\" argument"];
 			return nil;
-		}
+		}*/
 		
 		// update rect
-		NSDictionary *rect = [args objectForKey:@"rect"];
-		if (rect && [rect respondsToSelector:@selector(objectForKey:)])
-			contentRect = [rect updateRect:contentRect];
+		d = [args objectForKey:@"rect"];
+		if (d && [d respondsToSelector:@selector(objectForKey:)])
+			contentRect = [d updateRect:contentRect];
 		
-		// todo: style
-		styleMask = NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask;
+		// fullscreen
+		_fullscreen = ((n = [args objectForKey:@"fullscreen"]) && [n boolValue]);
+		if (_fullscreen)
+			shadow = NO; // shadow defaults to NO
 		
+		// style
+		/*
+		 titled: bool (true)
+		 closable: bool (true)
+		 miniaturizable: bool (true)
+		 resizable: bool (true)
+		 textured: bool (false)
+		 */
+		d = [args objectForKey:@"style"];
+		if (d && [d respondsToSelector:@selector(objectForKey:)]) {
+			#define OPT_DEFAULT_TRUE(dict, key, flag) \
+				( (!(n = [dict objectForKey:key]) || [n boolValue]) ? flag : 0 )
+			#define OPT_DEFAULT_FALSE(dict, key, flag) \
+				( ((n = [dict objectForKey:key]) && [n boolValue]) ? flag : 0 )
+			
+			/*
+			 Discussion:
+			 
+			 borderless is special -- if defined, others (except from textured) should 
+			 not be set. Also, NSBorderlessWindowMask is 0 (null) which makes things a 
+			 bit more complicated and might case problems in the future if the value of
+			 NSBorderlessWindowMask is changed.
+			*/
+			
+			styleMask = 0;
+			
+			if (!(n = [d objectForKey:@"borderless"]) || ![n boolValue]) {
+				// only eval these if not borderless
+				styleMask |= OPT_DEFAULT_TRUE(d, @"titled", NSTitledWindowMask);
+				styleMask |= OPT_DEFAULT_TRUE(d, @"closable", NSClosableWindowMask);
+				styleMask |= OPT_DEFAULT_TRUE(d, @"miniaturizable", NSMiniaturizableWindowMask);
+				styleMask |= OPT_DEFAULT_TRUE(d, @"resizable", NSResizableWindowMask);
+			}
+			styleMask |= OPT_DEFAULT_FALSE(d, @"textured", NSTexturedBackgroundWindowMask);
+			
+			if ((n = [d objectForKey:@"shadow"]))
+				shadow = [n boolValue];
+			
+			#undef OPT_DEFAULT_TRUE
+			#undef OPT_DEFAULT_FALSE
+		}
+		else if (_fullscreen) {
+			// no style feats by default when requesting fullscreen
+			styleMask = 0;
+		}
+		
+		// defer
 		if ((n = [args objectForKey:@"defer"]))
 			defer = [n boolValue];
+		
+		// level
+		if ((s = [args objectForKey:@"level"])) {
+			CGWindowLevelKey d = [CUWindow windowLevelKeyFromNameOrNumber:s];
+			if (windowLevel != -1)
+				windowLevel = CGWindowLevelForKey(d);
+		}
 	}
 	
 	// adjust rect origin if needed (center on screen)
@@ -134,21 +216,82 @@ EVJS_TRANSPOND_NAMES_PLAIN
 	}
 	
 	// set url
-	url = [NSURL alloc];
-	uri = [uri description];
-	if ([uri rangeOfString:@"://"].length)
-		url = [url initWithString:uri];
-	else
-		url = [url initFileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:uri]];
-	
+	if (uri) {
+		url = [NSURL alloc];
+		uri = [uri description];
+		if ([uri rangeOfString:@"://"].length)
+			url = [url initWithString:uri];
+		else
+			url = [url initFileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:uri]];
+	}
+		
 	// create window
 	CUWindow *win = [[CUWindow alloc] initWithContentRect:contentRect styleMask:styleMask defer:defer preferences:_webPrefs app:self];
-	[win loadURL:url];
 	
-	// xxx
-	//[win makeKeyAndOrderFront:self];
+	// set autosave name & possibly apply saved state
+	if (name)
+		[win setFrameAutosaveName:name];
 	
-	return win;
+	// set level
+	if (windowLevel != kCGNormalWindowLevel)
+		[win setLevel:windowLevel];
+	
+	// set shadow
+	if (!shadow)
+		[win setHasShadow:NO];
+	
+	// load url
+	if (url)
+		[win loadURL:url];
+	
+	// fullscreen
+	if (_fullscreen)
+		[win.win setFullscreen:YES];
+	
+	return win.win;
+}
+
+
+-(BOOL)fullscreen {
+	return fullscreen != -1 ? YES : NO;
+}
+
+
+-(void)setFullscreen:(BOOL)b {
+	if (b)
+		[self enterFullscreen:CGMainDisplayID()];
+	else
+		[self exitFullscreen];
+}
+
+
+-(BOOL)enterFullscreen:(CGDirectDisplayID)screenID {
+	if (fullscreen == -1) {
+		fullscreen = screenID;
+		if (CGDisplayCapture(fullscreen) == kCGErrorSuccess)
+			return YES;
+		fullscreen = -1;
+		CUJS_THROW(@"Failed to capture screen (enter fullscreen)");
+	}
+	return NO;
+}
+
+-(CGDirectDisplayID)exitFullscreen {
+	if (fullscreen != -1 && [self exitFullscreen:fullscreen]) {
+		CGDirectDisplayID sid = fullscreen;
+		fullscreen = -1;
+		return sid;
+	}
+	return -1;
+}
+
+-(BOOL)exitFullscreen:(CGDirectDisplayID)screenID {
+	if (CGDisplayRelease(screenID) == kCGErrorSuccess)
+		return YES;
+	NSLog(@"Failed to release screen %d (exit fullscreen) -- terminating application", fullscreen);
+	CUJS_THROW(@"Failed to release screen %d (exit fullscreen) -- terminating application", fullscreen);
+	[NSApp terminate:self];
+	return NO;
 }
 
 

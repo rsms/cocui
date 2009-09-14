@@ -4,6 +4,6 @@
 	NSURL *imageURL;
 }
 
-@property(assign) NSURL *imageURL;
+@property NSURL *imageURL;
 
 @end

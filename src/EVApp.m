@@ -1,5 +1,6 @@
 #import "EVApp.h"
 #import "WebScriptObject+EVJS.h"
+#import "jsbridge.h"
 
 #import "webkit-private/WebInspector.h"
 #import "webkit-private/WebInspectorWindowController.h"
@@ -53,7 +54,6 @@ EVApp *g_app = NULL;
 	developmentMode = [jsapp.defaults boolForKey:@"DevelopmentMode"];
 	[jsapp.defaults setBool:developmentMode forKey:@"WebKitDeveloperExtras"];
 	if (developmentMode) {
-		NSLog(@"starting in development mode");
 		[jsapp.defaults setBool:NO forKey:@"WebKitInspectorAttached"];
 		[jsapp.defaults setBool:YES forKey:@"WebKit Web Inspector Setting - resourceTrackingEnabled"];
 	}
@@ -185,27 +185,19 @@ EVApp *g_app = NULL;
 #pragma mark -
 #pragma mark NSApplication delegate methods
 
-// events
+// forward notification as js events on document
 
-#define _NOTIFICATION_TO_JSEVENT(_name_)\
-- (void)_name_:(NSNotification *)notification {\
-	DOMDocument *d = [[jsapp.webView mainFrame] DOMDocument];\
-	if (d) {\
-		DOMEvent *ev = [d createEvent:@"Event"];\
-		[ev initEvent:@"" #_name_ canBubbleArg:NO cancelableArg:YES];\
-		[d dispatchEvent:ev];\
-	}\
-}
-
-_NOTIFICATION_TO_JSEVENT(applicationWillBecomeActive)
-_NOTIFICATION_TO_JSEVENT(applicationDidBecomeActive)
-_NOTIFICATION_TO_JSEVENT(applicationWillResignActive)
-_NOTIFICATION_TO_JSEVENT(applicationDidResignActive)
-_NOTIFICATION_TO_JSEVENT(applicationWillTerminate)
-_NOTIFICATION_TO_JSEVENT(applicationWillHide)
-_NOTIFICATION_TO_JSEVENT(applicationDidHide)
-_NOTIFICATION_TO_JSEVENT(applicationWillUnhide)
-_NOTIFICATION_TO_JSEVENT(applicationDidUnhide)
+#define _DOMDOC [[jsapp.webView mainFrame] DOMDocument]
+CUJS_FORWARD_NOTIFICATION_IM(applicationWillBecomeActive, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationDidBecomeActive, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationWillResignActive, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationDidResignActive, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationWillTerminate, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationWillHide, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationDidHide, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationWillUnhide, _DOMDOC)
+CUJS_FORWARD_NOTIFICATION_IM(applicationDidUnhide, _DOMDOC)
+#undef _DOMDOC
 
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {

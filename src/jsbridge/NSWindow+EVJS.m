@@ -2,8 +2,8 @@
 
 @implementation NSWindow (EVJS)
 
-EVJS_EXPOSE_THIS_CLASS;
-EVJS_TRANSPOND_NAMES_PLAIN;
+CUJS_EXPOSE_THIS_CLASS;
+CUJS_TRANSPOND_NAMES_PLAIN;
 
 - (EVRect *)_frame {
 	return [[EVRect alloc] initWithNSRect:[self frame]];
