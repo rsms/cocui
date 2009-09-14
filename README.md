@@ -53,13 +53,15 @@ Development mode enables a series of tools, aiding development:
 - Access to a streaming text log of messages both from your application (using console.log() etc) and from the runner core.
 - Quick restarting (reloading) of your app w/o restarting the actual process
 
-To enable development mode, set or change the boolean defaults key "DevelopmentMode" to `true` for your app.
+To enable development mode for a Cocui application, set the boolean defaults key "DevelopmentMode" to `true` for.
 
-Enable for the demo app:
+Example:
 
-	$ defaults write se.notion.Cocui DevelopmentMode -bool yes
+	$ defaults write my.cocui.app DevelopmentMode -bool yes
 
 You need to restart the native app after changing this key. Afterwards, a new menu item will appear: "Develop".
+
+When creating new application projects using the Cocui app, DevelopmentMode is already set for you.
 
 
 ## Creating a new project
