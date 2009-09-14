@@ -153,12 +153,25 @@ EVApp *g_app = NULL;
 #pragma mark UI actions
 
 
+-(WebInspector *)_frontmostWebInspector {
+	NSWindow *win = [self keyWindow];
+	NSLog(@"win = %@", win);
+	if (win && [win respondsToSelector:@selector(webInspector)])
+		return [(id)win webInspector];
+	return [self webInspector];
+}
+
 -(IBAction)showInspector:(id)sender {
 	[self dlog:@"displaying web inspector"];
-	[[self webInspector] show:webInspectorWindowController];
+	[[self _frontmostWebInspector] show:webInspectorWindowController];
 }
 
 -(IBAction)showConsole:(id)sender {
+	[self dlog:@"displaying web inspector with console"];
+	[[self _frontmostWebInspector] showConsole:webInspectorWindowController];
+}
+
+-(IBAction)showMainConsole:(id)sender {
 	[self dlog:@"displaying web inspector with console"];
 	[[self webInspector] showConsole:webInspectorWindowController];
 }

@@ -2,6 +2,9 @@
 #import "CUWindow.h"
 #import "jsbridge.h"
 
+#import "webkit-private/WebInspector.h"
+#import "webkit-private/WebInspectorWindowController.h"
+
 @implementation CUWindow
 
 EVJS_EXPOSE_THIS_CLASS
@@ -16,6 +19,8 @@ EVJS_TRANSPOND_NAMES_PLAIN
 	[webView setUIDelegate:self];
 	[webView setPreferences:webPrefs];
 	[webView setDrawsBackground:NO];
+	webInspector = nil;
+	webInspectorWindowController = nil;
 	[self setContentView:webView];
 	return self;
 }
@@ -23,6 +28,14 @@ EVJS_TRANSPOND_NAMES_PLAIN
 -(void)loadURL:(NSURL *)url {
 	NSLog(@"loading %@ with %@", self, url);
 	[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+-(WebInspector *)webInspector {
+	if (!webInspector)
+		webInspector = [[NSClassFromString(@"WebInspector") alloc] initWithWebView:webView];
+	if (!webInspectorWindowController)
+		webInspectorWindowController = [[NSClassFromString(@"WebInspectorWindowController") alloc] initWithInspectedWebView:webView];
+	return webInspector;
 }
 
 

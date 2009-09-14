@@ -23,8 +23,9 @@ extern EVApp *g_app; // global instance of application
 
 -(void)loadMainScript;
 
--(IBAction)showInspector:(id)sender;
--(IBAction)showConsole:(id)sender;
+-(IBAction)showInspector:(id)sender; // for frontmost win or main if no wins
+-(IBAction)showConsole:(id)sender; // for frontmost win or main if no wins
+-(IBAction)showMainConsole:(id)sender;
 -(IBAction)reloadApp:(id)sender;
 
 -(WebInspector *)webInspector;
