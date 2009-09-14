@@ -4,7 +4,7 @@
 @implementation CUWin
 
 CUJS_TRANSPOND_NAMES_PLAIN
-CUJS_FORWARD_INVOCATION_TO(window)
+CUJS_FORWARD_INVOCATION_TO(win)
 
 
 + (BOOL)isKeyExcludedFromWebScript:(const char *)name { return NO; }
@@ -17,7 +17,7 @@ CUJS_FORWARD_INVOCATION_TO(window)
 
 -(id)initWithWindow:(CUWindow *)w {
 	self = [super init];
-	window = w;
+	win = w;
 	fullscreen = -1;
 	return self;
 }
@@ -25,6 +25,16 @@ CUJS_FORWARD_INVOCATION_TO(window)
 
 -(NSString *)valueOf {
 	return [self description];
+}
+
+
+-(WebScriptObject *)window {
+	return [[win.webView mainFrame] windowObject];
+}
+
+
+-(WebScriptObject *)document {
+	return [[[win.webView mainFrame] windowObject] valueForKey:@"document"];
 }
 
 
@@ -36,38 +46,38 @@ CUJS_FORWARD_INVOCATION_TO(window)
 -(void)setFullscreen:(BOOL)b {
 	if (b && fullscreen == -1) {
 		fullscreen = CGMainDisplayID();
-		if ([window.app enterFullscreen:fullscreen]) {
-			CUJS_DISPATCH_EVENT(windowDidEnterFullscreen, [[window.webView mainFrame] DOMDocument]);
-			_levelBeforeFullscreen = [window level];
-			_frameBeforeFullscreen = [window frame];
-			[window setLevel:CGShieldingWindowLevel()];
-			[window setFrame:[[NSScreen mainScreen] frame] display:YES];
+		if ([win.app enterFullscreen:fullscreen]) {
+			CUJS_DISPATCH_EVENT(windowDidEnterFullscreen, [[win.webView mainFrame] DOMDocument]);
+			_levelBeforeFullscreen = [win level];
+			_frameBeforeFullscreen = [win frame];
+			[win setLevel:CGShieldingWindowLevel()];
+			[win setFrame:[[NSScreen mainScreen] frame] display:YES];
 		}
 		else {
 			fullscreen = -1;
 		}
 	}
-	else if (fullscreen != -1 && [window.app exitFullscreen:fullscreen]) {
-		CUJS_DISPATCH_EVENT(windowDidExitFullscreen, [[window.webView mainFrame] DOMDocument]);
+	else if (fullscreen != -1 && [win.app exitFullscreen:fullscreen]) {
+		CUJS_DISPATCH_EVENT(windowDidExitFullscreen, [[win.webView mainFrame] DOMDocument]);
 		fullscreen = -1;
-		[window setLevel:_levelBeforeFullscreen];
-		[window setFrame:_frameBeforeFullscreen display:YES];
+		[win setLevel:_levelBeforeFullscreen];
+		[win setFrame:_frameBeforeFullscreen display:YES];
 	}
 }
 
 
 -(BOOL)shadow {
-	return [window hasShadow];
+	return [win hasShadow];
 }
 
 
 -(void)setShadow:(BOOL)b {
-	return [window setHasShadow:b];
+	return [win setHasShadow:b];
 }
 
 
 -(NSString *)level {
-	return [NSString stringWithUTF8String:[CUWindow windowLevelNameForLevel:[window level]]];
+	return [NSString stringWithUTF8String:[CUWindow windowLevelNameForLevel:[win level]]];
 }
 
 
@@ -75,12 +85,12 @@ CUJS_FORWARD_INVOCATION_TO(window)
 	CGWindowLevelKey d = [CUWindow windowLevelKeyFromNameOrNumber:s];
 	if (d != -1) {
 		NSLog(@"setting window level to %d", d);
-		[window setLevel:CGWindowLevelForKey(d)];
+		[win setLevel:CGWindowLevelForKey(d)];
 	}
 	else {
 		id obj = s;
 		if (![s respondsToSelector:@selector(setException:)])
-			obj = [window.webView windowScriptObject];
+			obj = [win.webView windowScriptObject];
 		[obj setException:[NSString stringWithFormat:@"Invalid window level %@", [s description]]];
 	}
 }

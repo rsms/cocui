@@ -9,6 +9,15 @@ App.createWindow({
 /*App.createWindow('index.html').makeKeyAndOrderFront();
 */
 
+/*
+ Important information:
+ Loading and executing content directly from the Internets is DANGEROUS.
+   App.createWindow('http://evil.site/exploit-cocui-relaxness') == epic fail
+ This is because Cocui employs relaxed security rules, like unrestricted XHR and
+ to some extent access to the userland part of the operating system (I/O etc).
+ Load remote content at your own risk -- you have been warned.
+*/
+
 // Example of a fullscreen window (quits after 4 seconds)
 /*App.createWindow({ uri: 'index.html', fullscreen: true }).makeKeyAndOrderFront();
 setTimeout(function(){ App.terminate() }, 4000);

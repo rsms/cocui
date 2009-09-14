@@ -7,12 +7,14 @@
  */
 
 @interface CUWin : NSObject {
-	CUWindow *window;
+	CUWindow *win;
 	CGDirectDisplayID fullscreen; // -1 when not in fullscreen mode
 	
 	// Not actually used, but here to comply with KVC in the WebScript environment:
 	char level;
 	char shadow;
+	char window;
+	char document;
 	
 @protected
 	NSInteger _levelBeforeFullscreen;
@@ -22,6 +24,8 @@
 @property(assign) NSString *level;
 @property(assign) BOOL shadow;
 @property(assign) BOOL fullscreen;
+@property(readonly) WebScriptObject *window;
+@property(readonly) WebScriptObject *document;
 
 -(id)initWithWindow:(CUWindow *)window;
 
