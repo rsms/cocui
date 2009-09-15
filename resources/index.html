@@ -31,18 +31,18 @@
 		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 		function demo_animation() {
-			var originalFrame = Win._frame;
+			var originalFrame = Win.frame;
 			console.log(originalFrame);
 			$('button').get(0).disabled = true;
 			var sequence = [null,
 				// Move window
-				function(){ Win._frame = {origin:{x:100, y:200}, size:originalFrame.size, animate:true}; },
-				function(){ Win._frame = {origin:{x:100, y:200}, size:{width:600, height:200}, animate:true}; },
-				function(){ Win._frame = originalFrame },
+				function(){ Win.setFrame({origin:{x:100, y:200}, size:originalFrame.size, animate:true}) },
+				function(){ Win.setFrame({origin:{x:150, y:250}, size:{width:600, height:200}, animate:true}) },
+				function(){ Win.frame = originalFrame }, // property syntax also OK
 				
 				// Toggle shadow
-				function(){ Win.setHasShadow(false) },
-				function(){ Win.setHasShadow(true) },
+				function(){ Win.shadow = false },
+				function(){ Win.shadow = true },
 				
 				// Remove the toolbar
 				//function(){ Win.setToolbar(null) },

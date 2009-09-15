@@ -1,4 +1,5 @@
 #import "CUWindow.h"
+#import "EVRect.h"
 
 /*
  Exposed as "Win" in window script contexts and represents the window.
@@ -15,6 +16,7 @@
 	char shadow;
 	char window;
 	char document;
+	char frame;
 	
 @protected
 	NSInteger _levelBeforeFullscreen;
@@ -26,6 +28,7 @@
 @property(assign) BOOL fullscreen;
 @property(readonly) WebScriptObject *window;
 @property(readonly) WebScriptObject *document;
+@property(assign) EVRect *frame;
 
 -(id)initWithWindow:(CUWindow *)window;
 

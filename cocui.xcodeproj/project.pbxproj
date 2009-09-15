@@ -6,7 +6,23 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3A01B3A010604CF400B34F2F /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3A01B3B110604CF700B34F2F /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				3A01B39F10604CF400B34F2F /* ShellScript */,
+			);
+			dependencies = (
+				3A01B3B31060506A00B34F2F /* PBXTargetDependency */,
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		3A01B39910604A2100B34F2F /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3A01B39810604A2100B34F2F /* dsa_pub.pem */; };
 		3A105538105D264D00E1DFE2 /* CUManagerApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A105537105D264D00E1DFE2 /* CUManagerApp.m */; };
 		3A114E93105D3E1C00921886 /* CUImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A114E92105D3E1C00921886 /* CUImageView.m */; };
 		3A114ED7105D474300921886 /* Template.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* Template.app */; };
@@ -31,9 +47,7 @@
 		3A4BEF8410513E6400534481 /* EVWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BEF8310513E6400534481 /* EVWebView.m */; };
 		3A6A0B4C105D17590035640D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		3A6A0B6F105D183A0035640D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A0B6D105D183A0035640D /* MainMenu.xib */; };
-		3A7B4C12105EE0E30097B5D5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4C11105EE0E30097B5D5 /* Sparkle.framework */; };
 		3A7B4C13105EE0E30097B5D5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4C11105EE0E30097B5D5 /* Sparkle.framework */; };
-		3A7B4C2A105EE1140097B5D5 /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4C11105EE0E30097B5D5 /* Sparkle.framework */; };
 		3A7B4C2D105EE13D0097B5D5 /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B4C11105EE0E30097B5D5 /* Sparkle.framework */; };
 		3A7B4C31105EE19E0097B5D5 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1183D1105D25750058B542 /* main.xib */; };
 		3AEE4417105E943500E89C47 /* CUWin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE4416105E943500E89C47 /* CUWin.m */; };
@@ -45,12 +59,18 @@
 		3AF3BB2E105C20F600B3CBCC /* WebScriptObject+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB2D105C20F600B3CBCC /* WebScriptObject+EVJS.m */; };
 		3AF3BB55105C27F700B3CBCC /* NSUserDefaults+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB54105C27F700B3CBCC /* NSUserDefaults+EVJS.m */; };
 		3AF3BB5A105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3BB59105C2AAB00B3CBCC /* NSUserDefaultsController+EVJS.m */; };
-		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A01B3B21060506A00B34F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A6A0B35105D17590035640D /* Cocui */;
+			remoteInfo = Cocui;
+		};
 		3A114ED8105D474A00921886 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -61,17 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3A7B4C26105EE1040097B5D5 /* Copy frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3A7B4C2A105EE1140097B5D5 /* Sparkle.framework in Copy frameworks */,
-			);
-			name = "Copy frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3A7B4C30105EE1430097B5D5 /* Copy frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,13 +95,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = src/prefix.pch; sourceTree = "<group>"; };
+		3A01B39810604A2100B34F2F /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		3A105536105D264D00E1DFE2 /* CUManagerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUManagerApp.h; sourceTree = "<group>"; };
 		3A105537105D264D00E1DFE2 /* CUManagerApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUManagerApp.m; sourceTree = "<group>"; };
 		3A114E91105D3E1C00921886 /* CUImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUImageView.h; sourceTree = "<group>"; };
@@ -170,7 +179,6 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3A4BEF3C10510E0700534481 /* WebKit.framework in Frameworks */,
 				3AF3BB17105C0C6200B3CBCC /* JavaScriptCore.framework in Frameworks */,
-				3A7B4C12105EE0E30097B5D5 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +264,6 @@
 				3A4BEF4C1051100100534481 /* index.html */,
 				3A4BC26A1051CF6F0080A8E5 /* jquery.js */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				3A6A0B6D105D183A0035640D /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -275,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1183CF105D25750058B542 /* Info.plist */,
+				3A01B39810604A2100B34F2F /* dsa_pub.pem */,
 				3A1183D0105D25750058B542 /* main.m */,
 				3A1183D1105D25750058B542 /* main.xib */,
 				3A1183D2105D25750058B542 /* prefix.pch */,
@@ -351,7 +359,6 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				3A7B4C26105EE1040097B5D5 /* Copy frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,6 +384,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* Template */,
 				3A6A0B35105D17590035640D /* Cocui */,
+				3A01B3A010604CF400B34F2F /* Distribution */,
 			);
 		};
 /* End PBXProject section */
@@ -388,6 +396,7 @@
 			files = (
 				3A7B4C31105EE19E0097B5D5 /* main.xib in Resources */,
 				3A114ED7105D474300921886 /* Template.app in Resources */,
+				3A01B39910604A2100B34F2F /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +406,6 @@
 			files = (
 				3A4BC26E1051CF9A0080A8E5 /* jquery.js in Resources */,
 				3A114F7B105D763500921886 /* main.js in Resources */,
-				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				3A4BEF4D1051100100534481 /* index.html in Resources */,
 				3AF3B962105BEA1100B3CBCC /* default.css in Resources */,
 				3A6A0B6F105D183A0035640D /* MainMenu.xib in Resources */,
@@ -405,6 +413,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A01B39F10604CF400B34F2F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -o errexit\n\n[ $BUILD_STYLE = Release ] || { echo Distribution target requires \"'Release'\" build style; false; }\n\nVERSION=$(defaults read \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info\" CFBundleVersion)\nDOWNLOAD_BASE_URL=\"http://hunch.se/cocui/dist\"\nRELEASENOTES_URL=\"http://hunch.se/cocui/release-notes.html#version-$VERSION\"\n\nARCHIVE_FILENAME=\"$PROJECT_NAME-$VERSION.zip\"\nDOWNLOAD_URL=\"$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME\"\nKEYCHAIN_PRIVKEY_NAME=\"Cocui release signing key (private)\"\n\nWD=$PWD\ncd \"$BUILT_PRODUCTS_DIR\"\nrm -f \"$PROJECT_NAME\"*.zip\nditto -ck --keepParent \"$PROJECT_NAME.app\" \"$ARCHIVE_FILENAME\"\n\nSIZE=$(stat -f %z \"$ARCHIVE_FILENAME\")\nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(\n\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g') \\\n\t| openssl enc -base64\n)\n\n# For OS X >=10.6:\n#SIGNATURE=$(\n#\topenssl dgst -sha1 -binary < \"$ARCHIVE_FILENAME\" \\\n#\t| openssl dgst -dss1 -sign <(security find-generic-password -g -s \"$KEYCHAIN_PRIVKEY_NAME\" 2>&1 1>/dev/null | perl -pe '($_) = /\"(.+)\"/; s/\\\\012/\\n/g' | perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file(\"-\")->findvalue(q(//string[preceding-sibling::key[1] = \"NOTE\"]))') \\\n#\t| openssl enc -base64\n#)\n\n[ $SIGNATURE ] || { echo Unable to load signing private key with name \"'$KEYCHAIN_PRIVKEY_NAME'\" from keychain; false; }\n\n\npython - <<EOF\nimport sys, re\nITEM = '''\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\n'''\nnewver = re.findall(r'sparkle:version=\"([^\"]+)\"', ITEM)[0]\nnewsig = re.findall(r'sparkle:dsaSignature=\"([^\"]+)\"', ITEM)[0]\n\nf = open('$WD/manager/appcast.xml','r')\nAPPCAST = f.read()\nf.close()\n\nif newver in re.findall(r'sparkle:version=\"([^\"]+)\"', APPCAST):\n  print >> sys.stderr, ('Version %s is already in the appcast.xml -- you need to manually '\\\n  'remove it from the appcast.xml if this is not an error.') % newver\n  sys.exit(1)\nelif newsig in re.findall(r'sparkle:dsaSignature=\"([^\"]+)\"', APPCAST):\n  print >> sys.stderr, ('Signature %s is already in the appcast.xml -- you need to manually '\\\n  'remove it from the appcast.xml if this is not an error.') % newsig\n  sys.exit(1)\n\nAPPCAST = re.compile(r'(\\n[ \\r\\n\\t]*</channel>)', re.M).sub(ITEM.rstrip()+r'\\1', APPCAST)\nopen('$WD/manager/appcast.xml','w').write(APPCAST)\nEOF\n\npython - <<EOF\nimport sys, re\nITEM = '''\n\t\t<section id=\"version-$VERSION\">\n\t\t\t<h2>Version $VERSION</h2>\n\t\t\t<ul>\n\t\t\t\t<li>DESCRIPTION</li>\n\t\t\t</ul>\n\t\t</section>\n'''\nVERSIONRE = r'<section id=\"version-([^\"]+)\">'\nnewver = re.findall(VERSIONRE, ITEM)[0]\n\nf = open('$WD/manager/release-notes.html','r')\nHTML = f.read()\nf.close()\n\nif newver in re.findall(VERSIONRE, HTML):\n  print >> sys.stderr, ('Version %s is already in the release-notes.html -- you need to manually '\\\n  'remove it from release-notes.html if this is not an error.') % newver\n  sys.exit(1)\n\nHTML = re.compile(r'(\\n[ \\r\\n\\t]*</body>)', re.M).sub(ITEM.rstrip()+r'\\1', HTML)\nopen('$WD/manager/release-notes.html','w').write(HTML)\nEOF\n\nPATH=~/bin:$PATH # if mate is in home/bin\nmate -a \"$WD/manager/appcast.xml\"\nmate -a \"$WD/manager/release-notes.html\"\nmate -a <<EOF\n\n                  ------------- INSTRUCTIONS -------------\n\n1. Complete the new entry created in release-notes.html\n\n\tmate '$WD/manager/release-notes.html'\n\n2. Publish the archive, release notes and appcast -- in that order:\n\n\tscp '$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME' hunch.se:/var/www/hunch.se/www/public/cocui/dist/\n\tscp '$WD/manager/release-notes.html' hunch.se:/var/www/hunch.se/www/public/cocui/release-notes.html\n\tscp '$WD/manager/appcast.xml' hunch.se:/var/www/hunch.se/www/public/cocui/appcast.xml\n\nEOF\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A6A0B3C105D17590035640D /* Sources */ = {
@@ -448,6 +472,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A01B3B31060506A00B34F2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A6A0B35105D17590035640D /* Cocui */;
+			targetProxy = 3A01B3B21060506A00B34F2F /* PBXContainerItemProxy */;
+		};
 		3A114ED9105D474A00921886 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Template */;
@@ -456,14 +485,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C165DFE840E0CC02AAC07 /* InfoPlist.strings */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		3A6A0B6D105D183A0035640D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -475,6 +496,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A01B3A110604CF500B34F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribution;
+			};
+			name = Debug;
+		};
+		3A01B3A210604CF500B34F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribution;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		3A6A0B50105D17590035640D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -596,6 +638,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A01B3B110604CF700B34F2F /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A01B3A110604CF500B34F2F /* Debug */,
+				3A01B3A210604CF500B34F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3A6A0B4F105D17590035640D /* Build configuration list for PBXNativeTarget "Cocui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -38,6 +38,25 @@ CUJS_FORWARD_INVOCATION_TO(win)
 }
 
 
+- (EVRect *)frame {
+	return [[EVRect alloc] initWithNSRect:[win frame]];
+}
+
+
+- (void)setFrame:(id)f {
+	id origin = [f valueForKey:@"origin"];
+	id size = [f valueForKey:@"size"];
+	NSRect r = NSMakeRect([[origin valueForKey:@"x"] floatValue], [[origin valueForKey:@"y"] floatValue],
+						  [[size valueForKey:@"width"] floatValue], [[size valueForKey:@"height"] floatValue]);
+	[win setFrame:r display:YES animate:YES];
+}
+
+/*- (NSArray *)position {
+	NSRect r = [self frame];
+	return [NSArray arrayWithObjects:[NSNumber numberWithFloat:r.origin.x], [NSNumber numberWithFloat:r.origin.y], nil];
+}*/
+
+
 -(BOOL)fullscreen {
 	return fullscreen != -1 ? YES : NO;
 }
