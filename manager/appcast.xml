@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>Cocui updates</title>
+		<link>http://github.com/rsms/cocui</link>
+		<description>Appcast for Cocui updates</description>
+		<language>en-us</language>
+		<pubDate>Tue, 10 Jun 2003 04:00:00 GMT</pubDate>
+		<lastBuildDate>Tue, 10 Jun 2003 09:41:01 GMT</lastBuildDate>
+	</channel>
+</rss>
