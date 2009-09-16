@@ -4,9 +4,11 @@ COCoa User Interface mockup.
 
 For rapidly building functional Cocoa applications using WebKit (HTML, CSS and JavaScript).
 
-> Download latest release: [Cocui.zip](http://cloud.github.com/downloads/rsms/cocui/Cocui.zip)
+## Download
 
-<small>(_Requires Mac OS X 10.5 or later_)</small>
+Latest releases from [http://hunch.se/cocui/](http://hunch.se/cocui/dist/)
+
+Cocui will keep itself up to date using [Sparkle](http://sparkle.andymatuschak.org/) <small> and _requires Mac OS X 10.5 or later_.
 
 ## What awesome stuff can I do with this?
 
