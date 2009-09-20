@@ -51,6 +51,7 @@ CUJS_FORWARD_INVOCATION_TO(win)
 	[win setFrame:r display:YES animate:YES];
 }
 
+
 /*- (NSArray *)position {
 	NSRect r = [self frame];
 	return [NSArray arrayWithObjects:[NSNumber numberWithFloat:r.origin.x], [NSNumber numberWithFloat:r.origin.y], nil];

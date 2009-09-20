@@ -1,12 +1,10 @@
-<?xml version="1.0"?>
-<rss version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
 	<channel>
 		<title>Cocui updates</title>
 		<link>http://github.com/rsms/cocui</link>
 		<description>Appcast for Cocui updates</description>
-		<language>en-us</language>
-		<pubDate>Tue, 10 Jun 2003 04:00:00 GMT</pubDate>
-		<lastBuildDate>Tue, 10 Jun 2003 09:41:01 GMT</lastBuildDate>
+		<language>en</language>
 		<item>
 			<title>Version 0.1</title>
 			<sparkle:releaseNotesLink>http://hunch.se/cocui/release-notes.html#version-0.1</sparkle:releaseNotesLink>
