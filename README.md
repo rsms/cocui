@@ -8,7 +8,7 @@ For rapidly building functional Cocoa applications using WebKit (HTML, CSS and J
 
 Latest releases from [http://hunch.se/cocui/](http://hunch.se/cocui/dist/)
 
-Cocui will keep itself up to date using [Sparkle](http://sparkle.andymatuschak.org/) <small> and _requires Mac OS X 10.5 or later_.
+Cocui will keep itself up to date using [Sparkle](http://sparkle.andymatuschak.org/) and _requires Mac OS X 10.5 or later_.
 
 ## What awesome stuff can I do with this?
 
