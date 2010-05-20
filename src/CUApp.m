@@ -267,18 +267,21 @@ CUJS_TRANSPOND_NAMES_PLAIN
 
 -(BOOL)enterFullscreen:(CGDirectDisplayID)screenID {
 	if (fullscreen == -1) {
-		fullscreen = screenID;
-		if (CGDisplayCapture(fullscreen) == kCGErrorSuccess)
+		if (CGDisplayCapture(screenID) == kCGErrorSuccess) {
+			fullscreen = screenID;
 			return YES;
-		fullscreen = -1;
+		}
+		NSLog(@"Failed to capture screen (enter fullscreen)");
 		CUJS_THROW(@"Failed to capture screen (enter fullscreen)");
+	} else {
+		NSLog(@"Avoided entering fullscreen (already in fullscreen mode)");
 	}
 	return NO;
 }
 
 -(CGDirectDisplayID)exitFullscreen {
+	CGDirectDisplayID sid = fullscreen;
 	if (fullscreen != -1 && [self exitFullscreen:fullscreen]) {
-		CGDirectDisplayID sid = fullscreen;
 		fullscreen = -1;
 		return sid;
 	}
@@ -286,8 +289,11 @@ CUJS_TRANSPOND_NAMES_PLAIN
 }
 
 -(BOOL)exitFullscreen:(CGDirectDisplayID)screenID {
-	if (CGDisplayRelease(screenID) == kCGErrorSuccess)
+	if (CGDisplayRelease(screenID) == kCGErrorSuccess) {
+		if (screenID == fullscreen)
+			fullscreen = -1;
 		return YES;
+	}
 	NSLog(@"Failed to release screen %d (exit fullscreen) -- terminating application", fullscreen);
 	CUJS_THROW(@"Failed to release screen %d (exit fullscreen) -- terminating application", fullscreen);
 	[NSApp terminate:self];

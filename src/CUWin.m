@@ -65,6 +65,7 @@ CUJS_FORWARD_INVOCATION_TO(win)
 
 -(void)setFullscreen:(BOOL)b {
 	if (b && fullscreen == -1) {
+		NSLog(@"entering fullscreen");
 		fullscreen = CGMainDisplayID();
 		if ([win.app enterFullscreen:fullscreen]) {
 			CUJS_DISPATCH_EVENT(windowDidEnterFullscreen, [[win.webView mainFrame] DOMDocument]);
@@ -78,6 +79,7 @@ CUJS_FORWARD_INVOCATION_TO(win)
 		}
 	}
 	else if (fullscreen != -1 && [win.app exitFullscreen:fullscreen]) {
+		NSLog(@"exiting fullscreen");
 		CUJS_DISPATCH_EVENT(windowDidExitFullscreen, [[win.webView mainFrame] DOMDocument]);
 		fullscreen = -1;
 		[win setLevel:_levelBeforeFullscreen];
